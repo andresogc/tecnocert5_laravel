@@ -1,0 +1,26 @@
+[
+  {
+    "question": "¿Qué es un GAP Análisis ISO 9001 y para qué sirve?",
+    "answer": "Es una evaluación diagnóstica que permite identificar las brechas entre el estado actual de la organización y los requisitos de la Norma ISO 9001:2015, estableciendo el punto de partida para la mejora del sistema de gestión de la calidad."
+  },
+  {
+    "question": "¿Qué diferencia hay entre auditoría interna y GAP análisis?",
+    "answer": "La auditoría evalúa conformidad y eficacia; el GAP analiza brechas iniciales."
+  },
+  {
+    "question": "¿Cuánto tiempo dura el GAP Análisis?",
+    "answer": "Depende del tamaño y complejidad de la organización, pero normalmente oscila entre uno (1) y tres (3) días."
+  },
+  {
+    "question": "¿En qué momento es recomendable realizar un GAP Análisis?",
+    "answer": "Es recomendable antes de iniciar un proceso de certificación, tras cambios organizacionales importantes, ante resultados deficientes en auditorías o cuando se busca mejorar la eficacia del sistema de gestión."
+  },
+  {
+    "question": "¿Qué nivel de confidencialidad tiene la información evaluada?",
+    "answer": "Toda la información revisada se maneja bajo estrictos criterios de confidencialidad y uso exclusivo para el análisis acordado."
+  },
+  {
+    "question": "¿Cómo se clasifican las brechas  identificadas?",
+    "answer": "Las brechas se clasifican según su nivel de impacto, criticidad y relación con los requisitos de la norma, facilitando la priorización de acciones."
+  }
+]

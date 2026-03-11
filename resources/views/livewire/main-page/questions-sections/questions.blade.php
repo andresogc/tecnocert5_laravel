@@ -1,0 +1,1 @@
+@include('layouts.public-partials.others.questions-accordeon')

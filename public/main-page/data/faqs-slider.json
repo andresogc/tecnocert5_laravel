@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Formato de solicitud de certificación",
+    "paragraph": "La empresa debe tener un Sistema de Gestión de la calidad implementado, que cumpla con al menos un Ciclo Planificar-Hacer-Verificar-Actuar (PHVA) completo.",
+    "footerTitle":"TECNOCERT",
+    "footerSubtitle":"Expertos en certificación",
+    "download_path":"files/TC-FC-01-1_V1_Solicitud_de_certificación_de_sistemas_de_gestión.xlsx"
+  },
+  {
+    "title": "Formato de quejas y apelaciones",
+    "paragraph": "3 años.",
+    "footerTitle":"TECNOCERT",
+    "footerSubtitle":"Expertos en certificación",
+    "download_path":"files/TC-FO-02-1_V1_Formato_Quejas_y_apelaciones.docx"
+  }
+
+]

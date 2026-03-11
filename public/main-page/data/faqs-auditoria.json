@@ -1,0 +1,29 @@
+[
+  {
+    "question": "¿Qué es una auditoría interna ISO 9001?",
+    "answer": "Es una evaluación sistemática e independiente para verificar la conformidad y eficacia del sistema de gestión de la calidad frente a la Norma ISO 9001."
+  },
+  {
+    "question": "¿Por qué es obligatoria la auditoría interna?",
+    "answer": "Porque la norma exige que la organización evalúe periódicamente su sistema para asegurar su cumplimiento y mejora continua."
+  },
+  {
+    "question": "¿Con qué frecuencia debe realizarse?",
+    "answer": "La frecuencia la define la organización, considerando riesgos, cambios y resultados de auditorías previas."
+  },
+
+   
+   {
+    "question": "¿Qué tipo de hallazgos se generan?",
+    "answer": "Conformidades, no conformidades, observaciones y oportunidades de mejora."
+  },
+   {
+    "question": "¿Qué entregables se reciben?",
+    "answer": "Un informe de auditoría con hallazgos, conclusiones y recomendaciones."
+  },
+   {
+    "question": "¿La auditoría ayuda a mejorar procesos?",
+    "answer": "Sí, identifica ineficiencias y oportunidades de mejora."
+  }
+   
+]

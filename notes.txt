@@ -1,0 +1,6 @@
+*******************************************
+Correr el prioeycto :
+1 forma composer run dev
+2 php artisan serve
+*--*******************************************
+
