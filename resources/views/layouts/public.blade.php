@@ -43,6 +43,54 @@
     });
 </script>
 
+  <script>
+     document.addEventListener('livewire:init', () => {
+
+            Livewire.on('toast', (data) => {
+                console.log('data',data);
+                showToastCotizacion(data.message, data.type,data.form);
+            });
+
+        });
+  </script>
+  <script>
+    // Función para mostrar Toast
+    function showToastCotizacion(message, type, form) {
+
+        const container = document.querySelector(
+            '.toast-container-' + form
+        );
+
+        if (!container) {
+            console.warn('No se encontró el contenedor del toast');
+            return;
+        }
+
+        container.innerHTML = '';
+
+        const toast = document.createElement('div');
+
+        toast.className = 'toast toast-' + type;
+
+        toast.innerText = message;
+
+        container.appendChild(toast);
+
+        console.log('toast', toast);
+        console.log('container', container);
+
+
+        setTimeout(() => {
+
+            toast.style.animation = 'slideOut 0.5s forwards';
+
+            setTimeout(() => {
+                toast.remove();
+            }, 500);
+
+        }, 5000);
+    }
+  </script>
 
 @stack('scripts')
 </body>

@@ -14,16 +14,7 @@
                             </div>
                             <div class="col-md-5 d-flex align-items-center">
 
-                                <form id="formSuscription" class="subscribe-form">
-                                    <div id="toast-container-suscription"></div>
-                                    <div class="form-group d-flex">
-                                        <input type="text" class="form-control" placeholder="Digita tu mail"
-                                            name="email" />
-                                        <input type="submit" value="Suscríbete" class="submit px-3"
-                                            id="btnSuscription" />
-
-                                    </div>
-                                </form>
+                                <livewire:main-page.forms.suscribe-form />
                             </div>
                         </div>
                     </div>

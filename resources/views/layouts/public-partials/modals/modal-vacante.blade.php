@@ -6,60 +6,7 @@
         &times;
       </button>
     </div>
-    <form id="formVacante" class="form-vacante">
-      
-
-       <div class="form-group">
-        <label>Nombre *</label>
-        <input type="text" class="form-control" placeholder="Nombre..." name="name" required />
-      </div>
-
-       <div class="form-group">
-        <label>Apellido *</label>
-        <input type="text" class="form-control" placeholder="Apellido..." name="last_name" required />
-      </div>
-
-       <div class="form-group">
-        <label>Teléfono *</label>
-        <input type="phone" class="form-control" placeholder="Teléfono..." name="phone" required />
-      </div>
-
-      <div class="form-group">
-        <label>Correo electrónico *</label>
-        <input type="email" class="form-control" placeholder="correo@empresa.com" name="email" required />
-      </div>
-
-      <div class="form-group">
-        <label>Comentarios (opcional)</label>
-        <textarea class="form-control" rows="3" placeholder="Observaciones"
-          name="observation"></textarea>
-      </div>
-
-      <div class="form-group">
-        <label>Adjuntar hoja de vida (PDF, máx. 2MB) *</label>
-
-        <div class="file-upload">
-          <input type="file" id="cvFile" name="cv_file" accept="application/pdf" required>
-          <label for="cvFile">
-            <i class="fa fa-upload"></i> Seleccionar archivo PDF
-          </label>
-          <span id="fileName">Ningún archivo seleccionado</span>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div id="toast-container-vacante"></div>
-        <button type="submit" class="form-control submit px-3" id="btnVacante"
-          style="background: linear-gradient(to right, #0e4e96 0%, #1056a8 25%, #587eec 60%, #1ce4de 100%) !important; color: #fff !important;">
-          Postularse
-        </button>
-      </div>
-      
-
-      <div class="form-footer">
-        <small>* Todos los campos son obligatorios excepto comentarios</small>
-      </div>
-    </form>
+    <livewire:main-page.forms.vacante-form />
   </div>
 </div>
 <style>
@@ -419,7 +366,7 @@
 </script>
 <!-- escript para enviar correo desde modal verificaicon -->
 <script>
-  const formVacante = document.getElementById('formVacante');
+ /*  const formVacante = document.getElementById('formVacante');
   const submitBtnVacante = formVacante.querySelector('button[type="submit"]');
   const toastContainerVacante = document.getElementById('toast-container-vacante');
   
@@ -491,8 +438,8 @@
       toast.style.animation = 'slideOut 0.5s forwards';
       setTimeout(() => toast.remove(), 500);
     }, 5000);
-  }
-</script>
+  }*/
+</script> 
 <script>
   const cvFile = document.getElementById("cvFile");
 const fileName = document.getElementById("fileName");

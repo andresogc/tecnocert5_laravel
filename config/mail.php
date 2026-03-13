@@ -113,4 +113,20 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'forms' => [
+
+        'contact' => explode(',', env('CONTACT_FORM_EMAILS')),
+
+        'cotizacion' => explode(',', env('COTIZACION_FORM_EMAILS')),
+
+        'suscribe' => explode(',', env('SUSCRIBE_FORM_EMAILS')),
+
+        'verification' => explode(',', env('VERIFICATION_FORM_EMAILS')),
+
+        'vacante' => explode(',', env('VACANTE_FORM_EMAILS')),
+
+    ],
+
+
+
 ];

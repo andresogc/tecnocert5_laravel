@@ -69,3 +69,4 @@
         </div>
     </div>
 </section>
+@include('layouts.public-partials.modals.modal-vacante')
