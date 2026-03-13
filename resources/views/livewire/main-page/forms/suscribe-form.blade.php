@@ -1,5 +1,5 @@
 <form wire:submit.prevent="send" id="formSuscription" class="subscribe-form">
-    <div id="toast-container-suscription" wire:ignore></div>
+    <div class="toast-container-suscription" wire:ignore></div>
     <div class="form-group d-flex">
         <input type="text" class="form-control" placeholder="Digita tu mail"
             name="email" wire:model="email"/>

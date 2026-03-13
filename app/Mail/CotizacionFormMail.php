@@ -16,18 +16,18 @@ class CotizacionFormMail extends Mailable
     public $name;
     public $email;
     public $phone;
-    public $message;
+    public $messageText;
 
 
     /**
      * Create a new message instance.
      */
-    public function __construct($name, $email, $phone, $message)
+    public function __construct($name, $email, $phone, $messageText)
     {
          $this->name = $name;
         $this->email = $email;
         $this->phone = $phone;
-        $this->message = $message;
+        $this->messageText = $messageText;
     }
 
     /**

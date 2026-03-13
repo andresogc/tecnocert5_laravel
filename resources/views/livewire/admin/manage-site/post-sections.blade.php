@@ -59,7 +59,7 @@
             <div class="box">
                 <div class="box-header flex justify-between">
                     <div class="box-title">
-                        Gestión de Blogs
+                        Publicación de Novedades Técnicas
                     </div>
                     <div class="flex">
                         <button 
@@ -68,7 +68,7 @@
                             {{-- data-hs-overlay="#customerModal" --}}
                             wire:click="create"
                         >
-                            <i class="ri ri-add-line"></i> Crear Blog
+                            <i class="ri ri-add-line"></i> Crear Publicación
                         </button>
 
                         <div class="hs-dropdown ti-dropdown ms-2">

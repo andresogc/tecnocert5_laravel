@@ -14,13 +14,13 @@ class CotizacionForm extends Component
     public $name;
     public $email;
     public $phone;
-    public $message;
+    public $messageText;
     
     protected $rules = [
         'name' => 'required',
         'email' => 'required|email',
         'phone' => 'required',
-        'message' => 'required',
+        'messageText' => 'required',
     ];
 
 
@@ -36,7 +36,7 @@ class CotizacionForm extends Component
                 $this->name,
                 $this->email,
                 $this->phone,
-                $this->message
+                $this->messageText
             ));
 
 

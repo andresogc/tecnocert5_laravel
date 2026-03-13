@@ -64,7 +64,7 @@
         </div>
       </div>
       <div class="faqs-slider owl-carousel" style="margin-top: 50px !important;height: 400px; margin-bottom: 0px;" >
-        <?php foreach($data['faqsSlider'] as $faq): ?>
+        @foreach($data['faqsSlider'] as $faq) 
         <div class="slider-item " style="padding:45px ;">
             <!-- incio Tarjeta  -->
             <div class="testimony-wrap " >
@@ -111,7 +111,8 @@
             </div>
             
         </div>
-        <?php endforeach; ?>
+        @endforeach
+
 
 
       </div>

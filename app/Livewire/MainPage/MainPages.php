@@ -207,7 +207,13 @@ class MainPages extends Component
 
 
         /* obtener jsons */
-        $faqsSlider = json_decode(file_get_contents(public_path('main-page/data/faqs-slider.json')), true);
+       /*  $faqsSlider = json_decode(file_get_contents(public_path('main-page/data/faqs-slider.json')), true); */
+
+        $faqsSlider = json_decode(
+            file_get_contents(storage_path('app/public/data/faqs-slider.json')),
+            true
+        );
+
 
        
         return view("livewire.main-page.{$this->page}",[

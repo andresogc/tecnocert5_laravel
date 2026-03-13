@@ -19,7 +19,7 @@
     <body class="min-h-screen bg-white antialiased dark:bg-linear-to-b dark:from-neutral-950 dark:to-neutral-900">
         <div class="bg-background flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
             <div class="flex w-full max-w-sm flex-col gap-2">
-                <a href="https://ecogeosystems.com" class="flex flex-col items-center gap-2 font-medium" wire:navigate>
+                <a href="https://WWW.tecnocert.com.co" class="flex flex-col items-center gap-2 font-medium" wire:navigate>
                     <span class="flex h-13 w-13 mb-1 items-center justify-center rounded-md">
                         <x-app-logo-icon class="size-16 fill-current text-black dark:text-white" />
                         

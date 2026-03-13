@@ -9,7 +9,7 @@ use App\Livewire\MainPage\MainPages;
 use Illuminate\Support\Facades\Route;
 
 
-/**rutas pagina principal de tecnocert  (publica)*/
+/**rutas pagina principal de TECNCOCERT  (publica)*/
 Route::get('/', MainPages::class)->name('index');
 Route::get('/iso9001', MainPages::class)->name('iso9001')->defaults('page', 'iso9001');
 Route::get('/gap_analisis', MainPages::class)->name('gap_analisis')->defaults('page', 'gap_analisis');
@@ -22,7 +22,7 @@ Route::get('/questions', MainPages::class)->name('questions')->defaults('page', 
 
 
 
-/**rutas de panel de administrador ecogeosystems (privada)*/
+/**rutas de panel de administrador TECNCOCERT (privada)*/
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
@@ -34,17 +34,37 @@ Route::get('legal-sections/{pageSection}', LegalSections::class)
     ->middleware(['auth', 'verified'])
     ->name('legalSections');
 
-Route::get('blog-sections', PostSections::class)
+/* vacancies */
+/* Route::get('vacancy-sections', VacancySections::class)
     ->middleware(['auth', 'verified'])
-    ->name('blogSections');
+    ->name('vacancy-sections');
 
-Route::get('blog-sections/create', PostForms::class)
+Route::get('vacancy-sections/create', VacancyForms::class)
     ->middleware(['auth', 'verified'])
-    ->name('blogSections.create');
+    ->name('vacancy-sections.create');
 
-Route::get('blog-sections/{post}/edit', PostForms::class)
+Route::get('vacancy-sections/{vacancy}/edit', VacancyForms::class)
     ->middleware(['auth', 'verified'])
-    ->name('blogSections.edit');
+    ->name('vacancy-sections.edit');
+ */
+/* posts */
+Route::get('post-sections', PostSections::class)
+    ->middleware(['auth', 'verified'])
+    ->name('post-sections');
+
+Route::get('post-sections/create', PostForms::class)
+    ->middleware(['auth', 'verified'])
+    ->name('post-sections.create');
+
+Route::get('post-sections/{post}/edit', PostForms::class)
+    ->middleware(['auth', 'verified'])
+    ->name('post-sections.edit');
+
+/* legals */
+/* Route::get('legal-sections', LegalSections::class)
+    ->middleware(['auth', 'verified'])
+    ->name('legal-sections'); */
+
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');

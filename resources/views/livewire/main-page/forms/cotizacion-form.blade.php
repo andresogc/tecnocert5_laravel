@@ -13,8 +13,8 @@
                 required wire:model="phone"/>
         </div>
         <div class="form-group">
-            <textarea name="message" cols="30" rows="3" class="form-control"
-                placeholder="Orientanos sobre tu solicitud" required wire:model="message"></textarea>
+            <textarea name="messageText" cols="30" rows="3" class="form-control"
+                placeholder="Orientanos sobre tu solicitud" required wire:model="messageText"></textarea>
         </div>
         <div class="form-group">
             <button 

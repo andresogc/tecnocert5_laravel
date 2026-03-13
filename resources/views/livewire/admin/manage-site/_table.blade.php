@@ -27,9 +27,9 @@ use Illuminate\Support\Str;
                         <div class="me-2 leading-none">
                             <span class="avatar avatar-sm avatar-rounded">
                                 @if ($post->media && $post->media->isNotEmpty())
-                                    <img src="{{$post->media[0]->url}}" alt="">
+                                    <img src="{{ asset($post->media[0]->url) }}" alt="">
                                 @else
-                                    <img src="{{asset('main-page/images/wemeet/blog/blog_sin_imagen.png')}}" alt="">
+                                    <img src="{{asset('admin/app/assets/images/others/blog_sin_imagen.png')}}" alt="">
                                 @endif
                                 
                             </span>

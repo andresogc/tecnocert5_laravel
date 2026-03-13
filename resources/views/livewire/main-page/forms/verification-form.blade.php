@@ -65,7 +65,7 @@
                     </span>
         </button>
       </div>
-      <div id="toast-container-verification" wire:ignore></div>
+      <div class="toast-container-verification" wire:ignore></div>
 
       <div class="form-footer">
         <small>* Todos los campos son obligatorios excepto comentarios</small>

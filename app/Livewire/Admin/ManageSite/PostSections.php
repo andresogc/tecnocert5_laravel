@@ -17,7 +17,7 @@ class PostSections extends Component
     public function create()
     {   
         
-        return redirect()->route('blogSections.create');
+        return redirect()->route('post-sections.create');
         
         
     }
@@ -25,7 +25,7 @@ class PostSections extends Component
     public function edit($id)
     {   
         
-        return redirect()->route('blogSections.edit', ['post' => $id]);
+        return redirect()->route('post-sections.edit', ['post' => $id]);
         
         
     }

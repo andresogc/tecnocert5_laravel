@@ -105,7 +105,7 @@
                 <h3>DETALLES DE LA SOLICITUD</h3>
                 <div class='message-box'>
                     <div class='label'>Mensaje:</div>
-                    <div class='value' style='width:100%; margin-top:10px;'> {{ nl2br($message) }}</div>
+                    <div class='value' style='width:100%; margin-top:10px;'> {{ $messageText }}</div>
                 </div>
             </div>
 
