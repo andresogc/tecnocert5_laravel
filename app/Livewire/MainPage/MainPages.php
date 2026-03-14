@@ -2,6 +2,7 @@
 
 namespace App\Livewire\MainPage;
 
+use App\Models\Legal;
 use App\Models\Page;
 use App\Models\PageSection;
 use App\Models\Post;
@@ -215,7 +216,22 @@ class MainPages extends Component
         );
 
 
-       
+        $legals = Legal::orderBy('order','asc')
+            ->get()
+            ->keyBy('id');
+
+        foreach ($faqsSlider as &$faq) {
+
+            if(isset($legals[$faq['legal_id']])) {
+
+                $legal = $legals[$faq['legal_id']];
+
+                $faq['download_path'] = asset($legal->file_path);
+                $faq['document_name'] = $legal->name;
+
+            }
+        }
+    
         return view("livewire.main-page.{$this->page}",[
             //seccion pagina principal
             'index' => $index,
@@ -228,22 +244,22 @@ class MainPages extends Component
             'work' => $work,
             'contact' => $contact,
             'questions'=>$questions,
-            //secciones blog
+            //secciones post
             'post' => $this->post,
-            //'posts' => $posts,
             'previousPost' => $this->previousPost,
             'nextPost' => $this->nextPost,
             //jsons
             'data'=>[
                 'faqsSlider' => $faqsSlider,
-            ]
-
+            ],
+          
         ])
             ->layout('layouts.public', [
                 'headType' => $current['head'],
                 'navbarType' => $current['navbar'],
                 'headerType' => $current['header'],
                 'footerType' => $current['footer'],
+                'legals' => $legals
             ]);
 
 

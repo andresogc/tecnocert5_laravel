@@ -87,7 +87,7 @@
                                             </div>
                                             <div class="col-md-8 mb-md-0 mb-4">
                                                 <h2 class="footer-heading">Términos y condiciones</h2>
-                                                <ul class="list-unstyled">
+                                                {{-- <ul class="list-unstyled">
                                                     <li>
                                                         <a href="{{asset('main-page/files/USOLOGO-TECNOCERT.pdf')}}" class="py-1 d-block"
                                                             target="_blank">Procedimiento del
@@ -118,12 +118,17 @@
                                                             style="text-align: justify;">Procedimiento quejas y
                                                             apelaciones.</a>
                                                     </li>
-                                                    <!-- <li>
-                                                        <a href="{{asset('main-page/files/TC-FO-02-1_V1_Formato_Quejas_y_apelaciones.docx')}}"
-                                                            class="py-1 d-block" target="_blank"
-                                                            style="text-align: justify;">Formato quejas y
-                                                            apelaciones.</a>
-                                                    </li> -->
+                                                    
+                                                </ul> --}}
+                                                <ul class="list-unstyled">
+                                                    @foreach ($legals->where('placement','footer-terms') as $legal)
+                                                         <li>
+                                                            <a href="{{asset($legal->file_path)}}" class="py-1 d-block"
+                                                                target="_blank">
+                                                                {{ $legal->name }}
+                                                            </a>
+                                                        </li>
+                                                    @endforeach
                                                 </ul>
                                             </div>
                                         </div>

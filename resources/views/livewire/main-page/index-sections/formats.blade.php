@@ -82,7 +82,7 @@
                   color: #333;
                   text-align:justify;
                   ">
-                  <span style="font-size:1.7rem;"> <strong><?= htmlspecialchars($faq['title']) ?></strong></span><br />
+                  <span style="font-size:1.7rem;"> <strong>{{ $faq['title'] }}</strong></span><br />
                 
                   <br><br>
                   
@@ -90,9 +90,9 @@
                 <div class="d-flex align-items-center">
                 
                   <div class="pl-3 mr-4">
-                    <p class="name"><?= htmlspecialchars($faq['footerTitle']) ?></p>
+                    <p class="name">  {{ $faq['footerTitle'] }}</p>
                     <span class="position">
-                      <a href="<?= htmlspecialchars($faq['download_path']) ?>">
+                      <a href="{{ $faq['download_path'] }}" target="_blank">
                         Descargar Documento
                         
                         </a>
@@ -101,7 +101,7 @@
                     <div class="avatar-container">
                     
                       <!-- <img src="images/logo.svg" alt="TECNOCERT Logo" class="avatar-img" /> -->
-                      <a href="<?= htmlspecialchars($faq['download_path']) ?>">
+                      <a href="{{ $faq['download_path'] }}" target="_blank">
                     <i class="fa fa-download" style="color:#1056A8; font-size:32px"></i>
                     </a>
 

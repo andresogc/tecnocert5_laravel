@@ -2,9 +2,12 @@
 
 use App\Livewire\Admin\Customers\Customers;
 use App\Livewire\Admin\ManageSite\HomeSections;
+use App\Livewire\Admin\ManageSite\LegalForms;
 use App\Livewire\Admin\ManageSite\LegalSections;
 use App\Livewire\Admin\ManageSite\PostForms;
 use App\Livewire\Admin\ManageSite\PostSections;
+use App\Livewire\Admin\ManageSite\VacancyForms;
+use App\Livewire\Admin\ManageSite\VacancySections;
 use App\Livewire\MainPage\MainPages;
 use Illuminate\Support\Facades\Route;
 
@@ -29,13 +32,18 @@ Route::view('dashboard', 'dashboard')
 Route::get('home-sections/{pageSection}', HomeSections::class)
     ->middleware(['auth', 'verified'])
     ->name('homeSections');
-
-Route::get('legal-sections/{pageSection}', LegalSections::class)
+/* legales*/
+Route::get('legal-sections', LegalSections::class)
     ->middleware(['auth', 'verified'])
-    ->name('legalSections');
-
+    ->name('legal-sections');
+Route::get('legal-sections/create', LegalForms::class)
+    ->middleware(['auth', 'verified'])
+    ->name('legal-sections.create');
+Route::get('legal-sections/{legal}/edit', LegalForms::class)
+    ->middleware(['auth', 'verified'])
+    ->name('legal-sections.edit');
 /* vacancies */
-/* Route::get('vacancy-sections', VacancySections::class)
+ Route::get('vacancy-sections', VacancySections::class)
     ->middleware(['auth', 'verified'])
     ->name('vacancy-sections');
 
@@ -46,7 +54,7 @@ Route::get('vacancy-sections/create', VacancyForms::class)
 Route::get('vacancy-sections/{vacancy}/edit', VacancyForms::class)
     ->middleware(['auth', 'verified'])
     ->name('vacancy-sections.edit');
- */
+
 /* posts */
 Route::get('post-sections', PostSections::class)
     ->middleware(['auth', 'verified'])

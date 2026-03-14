@@ -67,7 +67,7 @@ use Illuminate\Support\Str;
                         aria-label="button" 
                         type="button" 
                         class="ti-btn ti-btn-primary ti-btn-icon ti-btn-sm"
-                        title="Editar blog"
+                        title="Editar publicación"
                         wire:click="edit({{ $post->id }})"
                     >
                         <i class="las la-pen"></i>
@@ -77,7 +77,7 @@ use Illuminate\Support\Str;
                         type="button"
                         class="ti-btn ti-btn-danger ti-btn-icon ms-1 ti-btn-sm invoice-btn"
                         wire:click="confirmDelete({{ $post->id }})"
-                        title="Eliminar blog"
+                        title="Eliminar publicación"
                     >
                         <i class="ri-delete-bin-5-line"></i>
                     </button>

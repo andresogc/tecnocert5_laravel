@@ -3,7 +3,7 @@
     <!-- Page Header -->
     <div class="md:flex block items-center justify-between mb-6 mt-[2rem]  page-header-breadcrumb">
         <div class="my-auto">
-            <h5 class="page-title text-[1.3125rem] font-medium text-defaulttextcolor mb-0">Lista de Publicaciones</h5>
+            <h5 class="page-title text-[1.3125rem] font-medium text-defaulttextcolor mb-0">Lista de Vacantes</h5>
             <nav>
                 <ol class="flex items-center whitespace-nowrap min-w-0">
                     <li class="text-[12px]"> <a class="flex items-center text-primary hover:text-primary"
@@ -12,7 +12,7 @@
                         </a> </li>
                    
                     <li class="text-[12px]"> <a class="flex items-center text-textmuted"
-                            href="javascript:void(0);">Novedades Técnicas
+                            href="javascript:void(0);">Vacantes
                         </a> </li>
                 </ol>
             </nav>
@@ -68,7 +68,7 @@
                             {{-- data-hs-overlay="#customerModal" --}}
                             wire:click="create"
                         >
-                            <i class="ri ri-add-line"></i> Crear Publicación
+                            <i class="ri ri-add-line"></i> Crear Vacante
                         </button>
 
                         <div class="hs-dropdown ti-dropdown ms-2">
@@ -78,20 +78,24 @@
                             </button>
                             <ul class="hs-dropdown-menu ti-dropdown-menu hidden">
                                 <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
-                                        href="javascript:void(0);">Todos los blogs</a></li>
+                                        href="javascript:void(0);">Todas los vacantes</a></li>
                                 <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
-                                        href="javascript:void(0);">Blogs Publicados</a></li>
+                                        href="javascript:void(0);">Vacantes activos</a></li>
                                 <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
-                                        href="javascript:void(0);">Blogs en borrador</a></li>
+                                        href="javascript:void(0);">Vacantes inactivos</a></li>
+                                <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
+                                        href="javascript:void(0);">Vacantes en borrador</a></li>
+                                <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
+                                        href="javascript:void(0);">Vacantes en terminadas</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="box-body w-full ">
-                    @include('livewire.admin.manage-site.post-partials._table')
+                    @include('livewire.admin.manage-site.vacancy-partials._table')
                 </div>
                 <div class="box-footer">
-                    {{ $posts->links('vendor.pagination.ti-pagination') }}
+                    {{ $vacancies->links('vendor.pagination.ti-pagination') }}
                 </div>
             </div>
         </div>

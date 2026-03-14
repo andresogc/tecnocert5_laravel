@@ -834,7 +834,7 @@
 													<i class="fe fe-chevron-right side-menu__angle"></i></a>
 												<ul class="slide-menu child3">
 													<li class="slide">
-														<a href="{{ route('post-sections') }}" class="side-menu__item">Publicación de Vacantes</a>
+														<a href="{{ route('vacancy-sections') }}" class="side-menu__item">Publicación de Vacantes</a>
 													</li>
 												</ul>
 											</li>
@@ -853,7 +853,7 @@
 													<i class="fe fe-chevron-right side-menu__angle"></i></a>
 												<ul class="slide-menu child3">
 													<li class="slide">
-														<a href="{{ route('post-sections') }}" class="side-menu__item">Legales</a>
+														<a href="{{ route('legal-sections') }}" class="side-menu__item">Legales</a>
 													</li>
 												</ul>
 											</li>

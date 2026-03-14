@@ -145,7 +145,7 @@ class PostForms extends Component
             },3);
             
         } catch (\Exception $e) {
-            Log::error('Error al guardar cliente: '.$e->getMessage());
+            Log::error('Error al guardar blog: '.$e->getMessage());
 
             $this->dispatch('show-toast', [
                 'type' => 'error',
@@ -267,7 +267,7 @@ class PostForms extends Component
             },3);
             
         } catch (\Exception $e) {
-            Log::error('Error al guardar cliente: '.$e->getMessage());
+            Log::error('Error al actualizar post: '.$e->getMessage());
 
             $this->dispatch('show-toast', [
                 'type' => 'error',
