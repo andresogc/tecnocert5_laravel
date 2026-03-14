@@ -241,7 +241,7 @@
     })
   });
   /* ***************************************
-  //customs alerts para destionos infinitos **
+  //customs alerts para tenocert **
   // ******************************************/
   document.addEventListener("DOMContentLoaded", () => {
       Livewire.on('show-toast', (data) => {

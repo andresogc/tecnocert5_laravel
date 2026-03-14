@@ -7,7 +7,7 @@
             <!-- Start::page-header -->
             <div class="md:flex block items-center justify-between my-6 page-header-breadcrumb">
                 <div>
-                    <h4 class="mb-0 text-defaulttextcolor font-medium">ECOGEOSYSTEMS</h4>
+                    <h4 class="mb-0 text-defaulttextcolor font-medium">TECNOCERT</h4>
                     <p class="-mt-[0.2rem] mb-0 text-textmuted">Bienvenido al panel de administración!</p>
                 </div>
                 {{-- <div class="main-dashboard-header-right">

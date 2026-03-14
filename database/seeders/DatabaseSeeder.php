@@ -2,9 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Airport;
-use App\Models\Tour;
-use App\Models\TransportType;
+
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -28,7 +26,8 @@ class DatabaseSeeder extends Seeder
             PageSectionSeeder::class,
             PostSeeder::class,
             MediaSeeder::class,
-            
+            VacancySeeder::class,
+            LegalSeeder::class
         ]);
 
 

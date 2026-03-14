@@ -3,7 +3,7 @@
     <!-- Page Header -->
     <div class="md:flex block items-center justify-between mb-6 mt-[2rem]  page-header-breadcrumb">
         <div class="my-auto">
-            <h5 class="page-title text-[1.3125rem] font-medium text-defaulttextcolor mb-0">{{ $isEditMode ? 'Editar Blog' : 'Crear Blog' }}</h5>
+            <h5 class="page-title text-[1.3125rem] font-medium text-defaulttextcolor mb-0">{{ $isEditMode ? 'Editar Publicación' : 'Crear Publicación' }}</h5>
             <nav>
                 <ol class="flex items-center whitespace-nowrap min-w-0">
                     <li class="text-[12px]"> <a class="flex items-center text-primary hover:text-primary"
@@ -11,11 +11,11 @@
                                 class="ti ti-chevrons-right flex-shrink-0 mx-3 overflow-visible text-textmuted rtl:rotate-180"></i>
                         </a> </li>
                     <li class="text-[12px]"> <a class="flex items-center text-primary hover:text-primary"
-                            href="{{route('blogSections')}}"> Lista de blogs <i
+                            href="{{route('post-sections')}}"> Lista de publicaciones <i
                                 class="ti ti-chevrons-right flex-shrink-0 mx-3 overflow-visible text-textmuted rtl:rotate-180"></i>
                         </a> </li>
                     <li class="text-[12px]"> <a class="flex items-center text-textmuted"
-                            href="javascript:void(0);">{{ $isEditMode ? 'Editar Blog' : 'Crear Blog' }}
+                            href="javascript:void(0);">{{ $isEditMode ? 'Editar Publicación' : 'Crear Publicación' }}
                         </a> </li>
                 </ol>
             </nav>
@@ -137,7 +137,7 @@
                                     <div class="grid grid-cols-12 sm:gap-6">
                                        
                                         <div class="xxl:col-span-6 xl:col-span-6 lg:col-span-12 md:col-span-12 sm:col-span-12 col-span-12">
-                                            <x-input-file-filepond  wire:model='media' multiple/>
+                                            <x-input-file-filepond  class="basic-filepond1" model='media' multiple/>
                                         </div>
 
 

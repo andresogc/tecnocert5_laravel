@@ -743,7 +743,7 @@
 										<a href="javascript:void(0);">Panel</a>
 									</li>
 									
-									<li class="slide has-sub">
+									{{-- <li class="slide has-sub">
 										<a href="javascript:void(0);" class="side-menu__item">Editar página web
 											<i class="fe fe-chevron-right side-menu__angle"></i></a>
 										<ul class="slide-menu child2">
@@ -776,10 +776,12 @@
 														<a href="{{ route('homeSections', ['pageSection' => 11]) }}" class="side-menu__item">Sección 8 - Contacto</a>
 													</li>
 												</ul>
-											</li>
+											</li> 
+
                                             <li class="slide has-sub">
 												<a href="javascript:void(0);" class="side-menu__item">Legales
-													<i class="fe fe-chevron-right side-menu__angle"></i></a>
+													<i class="fe fe-chevron-right side-menu__angle"></i>
+                                                </a>
 												<ul class="slide-menu child2">
 													<li class="slide">
 														<a href="{{ route('legalSections',['pageSection' => 2]) }}" class="side-menu__item">Sección - Políticas de privacidad</a>
@@ -791,13 +793,67 @@
 														<a href="{{ route('legalSections',['pageSection' => 3]) }}" class="side-menu__item">Sección - Términos y condiciones</a>
 													</li>
 												</ul>
-											</li>
-                                            <li class="slide has-sub">
-												<a href="javascript:void(0);" class="side-menu__item">Blog
+											</li> 
+                                             <li class="slide has-sub">
+												<a href="javascript:void(0);" class="side-menu__item">Vacantes
 													<i class="fe fe-chevron-right side-menu__angle"></i></a>
 												<ul class="slide-menu child3">
 													<li class="slide">
-														<a href="{{ route('blogSections') }}" class="side-menu__item">Sección - Blog</a>
+														<a href="{{ route('post-sections') }}" class="side-menu__item">Publicación de Vacantes</a>
+													</li>
+												</ul>
+											</li>
+                                            
+                                            <li class="slide has-sub">
+												<a href="javascript:void(0);" class="side-menu__item">Publicaciones
+													<i class="fe fe-chevron-right side-menu__angle"></i></a>
+												<ul class="slide-menu child3">
+													<li class="slide">
+														<a href="{{ route('post-sections') }}" class="side-menu__item">Novedades Técnicas</a>
+													</li>
+												</ul>
+											</li>
+                                            <li class="slide has-sub">
+												<a href="javascript:void(0);" class="side-menu__item">Legales
+													<i class="fe fe-chevron-right side-menu__angle"></i></a>
+												<ul class="slide-menu child3">
+													<li class="slide">
+														<a href="{{ route('post-sections') }}" class="side-menu__item">Legales</a>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</li> --}}
+                                    <li class="slide has-sub">
+										<a href="javascript:void(0);" class="side-menu__item">Publicaciones
+											<i class="fe fe-chevron-right side-menu__angle"></i></a>
+										<ul class="slide-menu child2">
+											
+                                             <li class="slide has-sub">
+												<a href="javascript:void(0);" class="side-menu__item">Vacantes
+													<i class="fe fe-chevron-right side-menu__angle"></i></a>
+												<ul class="slide-menu child3">
+													<li class="slide">
+														<a href="{{ route('vacancy-sections') }}" class="side-menu__item">Publicación de Vacantes</a>
+													</li>
+												</ul>
+											</li>
+                                            
+                                            <li class="slide has-sub">
+												<a href="javascript:void(0);" class="side-menu__item">Publicaciones
+													<i class="fe fe-chevron-right side-menu__angle"></i></a>
+												<ul class="slide-menu child3">
+													<li class="slide">
+														<a href="{{ route('post-sections') }}" class="side-menu__item">Novedades Técnicas</a>
+													</li>
+												</ul>
+											</li>
+                                            <li class="slide has-sub">
+												<a href="javascript:void(0);" class="side-menu__item">Legales
+													<i class="fe fe-chevron-right side-menu__angle"></i></a>
+												<ul class="slide-menu child3">
+													<li class="slide">
+														<a href="{{ route('legal-sections') }}" class="side-menu__item">Legales</a>
 													</li>
 												</ul>
 											</li>

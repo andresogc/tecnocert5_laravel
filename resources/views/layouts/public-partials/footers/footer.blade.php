@@ -87,7 +87,7 @@
                                             </div>
                                             <div class="col-md-8 mb-md-0 mb-4">
                                                 <h2 class="footer-heading">Términos y condiciones</h2>
-                                                <ul class="list-unstyled">
+                                                {{-- <ul class="list-unstyled">
                                                     <li>
                                                         <a href="{{asset('main-page/files/USOLOGO-TECNOCERT.pdf')}}" class="py-1 d-block"
                                                             target="_blank">Procedimiento del
@@ -118,12 +118,17 @@
                                                             style="text-align: justify;">Procedimiento quejas y
                                                             apelaciones.</a>
                                                     </li>
-                                                    <!-- <li>
-                                                        <a href="{{asset('main-page/files/TC-FO-02-1_V1_Formato_Quejas_y_apelaciones.docx')}}"
-                                                            class="py-1 d-block" target="_blank"
-                                                            style="text-align: justify;">Formato quejas y
-                                                            apelaciones.</a>
-                                                    </li> -->
+                                                    
+                                                </ul> --}}
+                                                <ul class="list-unstyled">
+                                                    @foreach ($legals->where('placement','footer-terms') as $legal)
+                                                         <li>
+                                                            <a href="{{asset($legal->file_path)}}" class="py-1 d-block"
+                                                                target="_blank">
+                                                                {{ $legal->name }}
+                                                            </a>
+                                                        </li>
+                                                    @endforeach
                                                 </ul>
                                             </div>
                                         </div>
@@ -147,37 +152,14 @@
                 </div>
             </div>
             <div class="col-md-3 py-md-5 py-4 aside-stretch-right pl-lg-5" style="padding-bottom: 0px !important;">
-                <div id="toast-container-cotizacion"></div>
+                <div class="toast-container-cotizacion" wire:ignore></div>
                 <!--    iniico card 2 -->
                 
                         
                         <h2 class="footer-heading">Solicita tu cotización</h2>
                         <!-- CAMBIADO: action ahora apunta a php/send_mail.php -->
-                        <form id="formCotizacion" class="form-consultation" >
-                            <!-- ELIMINADOS: Los campos ocultos de Formspree -->
-
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nombres y apellidos" name="nombre"
-                                    required />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email" name="email" required />
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" class="form-control" placeholder="Télefono" name="telefono"
-                                    required />
-                            </div>
-                            <div class="form-group">
-                                <textarea name="mensaje" cols="30" rows="3" class="form-control"
-                                    placeholder="Orientanos sobre tu solicitud" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="form-control submit px-3">
-                                    Enviar solicitud
-                                </button>
-                            </div>
-                            
-                        </form>
+                         {{-- formulario livewire --}}
+                        <livewire:main-page.forms.cotizacion-form />
                     
                 <!-- fin card  2-->
 
@@ -220,60 +202,5 @@
     </style>
 </footer>
 <script>
-const form = document.getElementById('formCotizacion');
-const submitBtn = form.querySelector('button[type="submit"]');
-const toastContainer = document.getElementById('toast-container-cotizacion');
 
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Deshabilitar botón y mostrar "Procesando..."
-    submitBtn.disabled = true;
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = 'Procesando...';
-
-    const formData = new FormData(form);
-
-    fetch('php/send_mail.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => res.json())
-    .then(data => {
-        console.log("RESPUESTA SERVIDOR:", data);
-        showToastCotizacion(data.message, data.success ? 'success' : 'error');
-    
-        if(data.success) {
-            // Limpiar formulario
-            form.reset();
-
-            // Opcional: si quieres cerrar modal o sección, agregar aquí
-            // Ejemplo: si fuera un modal con id "modalCotizacion":
-            // setTimeout(() => closeCotizacionModal(), 5000);
-        }
-    })
-    .catch(err => {
-        console.error(err);
-        showToastCotizacion('Error al procesar la solicitud.', 'error');
-    })
-    .finally(() => {
-        // Habilitar botón nuevamente
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
-    });
-});
-
-// Función para mostrar Toast
-function showToastCotizacion(message, type) { 
-    const toast = document.createElement('div');
-    toast.className = 'toast toast-' + (type === 'success' ? 'success' : 'error');
-    toast.innerText = message;
-    toastContainer.appendChild(toast);
-
-    // Desaparece después de 5 segundos
-    setTimeout(() => {
-        toast.style.animation = 'slideOut 0.5s forwards';
-        setTimeout(() => toast.remove(), 500);
-    }, 5000);
-}
 </script>

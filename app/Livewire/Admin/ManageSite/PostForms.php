@@ -141,11 +141,11 @@ class PostForms extends Component
                 ]);
 
                 $this->resetForm();
-                return redirect()->route('blogSections');
+                return redirect()->route('post-sections');
             },3);
             
         } catch (\Exception $e) {
-            Log::error('Error al guardar cliente: '.$e->getMessage());
+            Log::error('Error al guardar blog: '.$e->getMessage());
 
             $this->dispatch('show-toast', [
                 'type' => 'error',
@@ -224,7 +224,7 @@ class PostForms extends Component
                     $type = 'image';
 
                     // Guarda en: storage/app/public/page_sections/hero/
-                    $path = $this->media->store("page_sections/{$post->slug}", 'public');
+                    $path = $this->media->store("post/{$post->id}", 'public');
 
                     $existingMedia = $post->media()
                         ->where('role', 'thumbnail')
@@ -263,11 +263,11 @@ class PostForms extends Component
                 ]);
 
                 $this->resetForm();
-                return redirect()->route('blogSections');
+                return redirect()->route('post-sections');
             },3);
             
         } catch (\Exception $e) {
-            Log::error('Error al guardar cliente: '.$e->getMessage());
+            Log::error('Error al actualizar post: '.$e->getMessage());
 
             $this->dispatch('show-toast', [
                 'type' => 'error',

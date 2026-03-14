@@ -6,10 +6,10 @@
     content="">
 
 <!-- Title -->
-<title> ECOGEOSYSTEMS&reg; | RESULTADOS REALES </title>
+<title> TECNOCERT&reg; | RESULTADOS REALES </title>
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="{{asset('main-page/favicon.ico')}}">
+<link rel="shortcut icon" href="{{asset('main-page/images/logo.ico')}}" type="image/ico" />
 
 <!-- Main Theme Js -->
 <script src="{{ asset('admin/app/assets/js/main.js') }}"></script>

@@ -2,19 +2,18 @@
 
 use App\Livewire\Admin\Customers\Customers;
 use App\Livewire\Admin\ManageSite\HomeSections;
+use App\Livewire\Admin\ManageSite\LegalForms;
 use App\Livewire\Admin\ManageSite\LegalSections;
 use App\Livewire\Admin\ManageSite\PostForms;
 use App\Livewire\Admin\ManageSite\PostSections;
+use App\Livewire\Admin\ManageSite\VacancyForms;
+use App\Livewire\Admin\ManageSite\VacancySections;
 use App\Livewire\MainPage\MainPages;
 use Illuminate\Support\Facades\Route;
 
 
-/**rutas pagina principal de ecogeosystems  (publica)*/
+/**rutas pagina principal de TECNCOCERT  (publica)*/
 Route::get('/', MainPages::class)->name('index');
-//rutas de blog
-Route::get('/blog_tecnico', MainPages::class)->name('blog_tecnico')->defaults('page', 'blog_tecnico');
-Route::get('/blog_detail/{slug}', MainPages::class)->name('blog_detail')->defaults('page', 'blog_detail');
-//rutas de legales
 Route::get('/iso9001', MainPages::class)->name('iso9001')->defaults('page', 'iso9001');
 Route::get('/gap_analisis', MainPages::class)->name('gap_analisis')->defaults('page', 'gap_analisis');
 Route::get('/auditoria_interna', MainPages::class)->name('auditoria_interna')->defaults('page', 'auditoria_interna');
@@ -24,36 +23,56 @@ Route::get('/work', MainPages::class)->name('work')->defaults('page', 'work');
 Route::get('/contact', MainPages::class)->name('contact')->defaults('page', 'contact');
 Route::get('/questions', MainPages::class)->name('questions')->defaults('page', 'questions');
 
-//ruta de preguntas
-Route::get('/preguntas_frecuentes', MainPages::class)->name('preguntas_frecuentes')->defaults('page', 'preguntas_frecuentes');
 
 
-/**rutas de panel de administrador ecogeosystems (privada)*/
+/**rutas de panel de administrador TECNCOCERT (privada)*/
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
-
-
-
 Route::get('home-sections/{pageSection}', HomeSections::class)
     ->middleware(['auth', 'verified'])
     ->name('homeSections');
-
-Route::get('legal-sections/{pageSection}', LegalSections::class)
+/* legales*/
+Route::get('legal-sections', LegalSections::class)
     ->middleware(['auth', 'verified'])
-    ->name('legalSections');
-
-Route::get('blog-sections', PostSections::class)
+    ->name('legal-sections');
+Route::get('legal-sections/create', LegalForms::class)
     ->middleware(['auth', 'verified'])
-    ->name('blogSections');
-
-Route::get('blog-sections/create', PostForms::class)
+    ->name('legal-sections.create');
+Route::get('legal-sections/{legal}/edit', LegalForms::class)
     ->middleware(['auth', 'verified'])
-    ->name('blogSections.create');
-
-Route::get('blog-sections/{post}/edit', PostForms::class)
+    ->name('legal-sections.edit');
+/* vacancies */
+ Route::get('vacancy-sections', VacancySections::class)
     ->middleware(['auth', 'verified'])
-    ->name('blogSections.edit');
+    ->name('vacancy-sections');
+
+Route::get('vacancy-sections/create', VacancyForms::class)
+    ->middleware(['auth', 'verified'])
+    ->name('vacancy-sections.create');
+
+Route::get('vacancy-sections/{vacancy}/edit', VacancyForms::class)
+    ->middleware(['auth', 'verified'])
+    ->name('vacancy-sections.edit');
+
+/* posts */
+Route::get('post-sections', PostSections::class)
+    ->middleware(['auth', 'verified'])
+    ->name('post-sections');
+
+Route::get('post-sections/create', PostForms::class)
+    ->middleware(['auth', 'verified'])
+    ->name('post-sections.create');
+
+Route::get('post-sections/{post}/edit', PostForms::class)
+    ->middleware(['auth', 'verified'])
+    ->name('post-sections.edit');
+
+/* legals */
+/* Route::get('legal-sections', LegalSections::class)
+    ->middleware(['auth', 'verified'])
+    ->name('legal-sections'); */
+
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
@@ -62,10 +81,6 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/password', 'settings.password')->name('password.edit');
     Volt::route('settings/appearance', 'settings.appearance')->name('appearance.edit'); */
 });
-
-
-
-
 
 
 require __DIR__.'/auth.php';

@@ -37,7 +37,26 @@
   FilePond.create(SingleElement3);
   FilePond.create(SingleElement4);
   FilePond.create(SingleElement5);
-  FilePond.create(SingleElement6);
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const el = document.querySelector('.basic-filepond6');
+
+    if (el) {
+        FilePond.create(el, {
+            allowFileTypeValidation: true,
+            acceptedFileTypes: [
+                'application/pdf',
+                'application/msword',
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                'application/vnd.ms-excel',
+                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+            ],
+            labelFileTypeNotAllowed: 'Formato de archivo no permitido',
+            fileValidateTypeLabelExpectedTypes: 'Solo se permiten PDF, Word o Excel'
+        });
+    }
+});
   /* FilePond.create(MultipleElement); */
   /* FilePond.create(CircularElement,
     {

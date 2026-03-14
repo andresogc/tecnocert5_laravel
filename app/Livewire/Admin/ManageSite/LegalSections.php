@@ -2,69 +2,60 @@
 
 namespace App\Livewire\Admin\Managesite;
 
-use App\Models\Media;
-use App\Models\PageSection;
+
+use App\Models\Legal;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
-
+use Livewire\WithPagination;
 
 class LegalSections extends Component
 {   
-    use WithFileUploads;
-    public $title,$content,$id;
-    public $currentSection;
+    use WithFileUploads, WithPagination;
+
+    protected $paginationTheme = 'tailwind'; 
+    protected $listeners = ['deleteConfirmed' => 'delete'];
+
+    public $name,$slug ,$file_path,$file_name,$updated_by ;
+
+     public $deleteLegal = null;
+
+    public function create()
+    {   
+        return redirect()->route('legal-sections.create');
+    }
+
+    public function edit($id)
+    {   
+        return redirect()->route('legal-sections.edit', ['legal' => $id]);
+    }
+
     
-    public $currentMediaUrl = null;
-    public $currentMediaType = null;
+    public function confirmDelete($id)
+    {   
+        $this->deleteLegal = $id;
 
-
-    public function mount(PageSection $pageSection)
-    {
-        $this->title = $pageSection->title ?? '';
-        $this->content = $pageSection->content['paragraphs'][0] ?? '';
-        $this->id=$pageSection->id;
-        $this->currentSection = PageSection::where('id', $this->id)->firstOrFail();
-        
-
-        $this->dispatch('loadEditorContent', $this->content);
-
+        // Dispara un evento JS que abre el Swal de confirmación
+        $this->dispatch('confirm-delete');
     }
 
 
-    public function update(){
-        
-        $this->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-        ]);  
+    public function delete()
+    {   
+        Legal::find($this->deleteLegal)?->delete();
+        $this->deleteLegal = null;
 
-        try {
-
-            DB::transaction(function () {
-                
-
-                $content = $this->currentSection->content;
-                $content['paragraphs'][0] = $this->content;
-
-                $this->currentSection->update([
-                    'title' => $this->title,
-                    'content' => $content,
-                ]);
-
-                $this->dispatch('show-toast', [
-                    'type' => 'success',
-                    'message' => 'Datos actualizados exitosamente!'
-                ]);
-            },3);
-        } catch (\Throwable $th) {
-            throw $th;
-        }
+        // Mensaje de éxito que captará <x-alert />
+        $this->dispatch('show-toast', [
+            'type' => 'success',
+            'message' => 'Documento eliminado exitosamente!'
+        ]);
     }
     
     public function render()
-    {
-        return view('livewire.admin.manage-site.legal-sections');
+    {   
+        $legals = Legal::orderBy('created_at','DESC')->paginate(5);
+        return view('livewire.admin.manage-site.legal-sections',compact('legals'));
     }
 }

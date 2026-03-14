@@ -27,9 +27,9 @@ use Illuminate\Support\Str;
                         <div class="me-2 leading-none">
                             <span class="avatar avatar-sm avatar-rounded">
                                 @if ($post->media && $post->media->isNotEmpty())
-                                    <img src="{{$post->media[0]->url}}" alt="">
+                                    <img src="{{ asset($post->media[0]->url) }}" alt="">
                                 @else
-                                    <img src="{{asset('main-page/images/wemeet/blog/blog_sin_imagen.png')}}" alt="">
+                                    <img src="{{asset('admin/app/assets/images/others/blog_sin_imagen.png')}}" alt="">
                                 @endif
                                 
                             </span>
@@ -67,7 +67,7 @@ use Illuminate\Support\Str;
                         aria-label="button" 
                         type="button" 
                         class="ti-btn ti-btn-primary ti-btn-icon ti-btn-sm"
-                        title="Editar blog"
+                        title="Editar publicación"
                         wire:click="edit({{ $post->id }})"
                     >
                         <i class="las la-pen"></i>
@@ -77,7 +77,7 @@ use Illuminate\Support\Str;
                         type="button"
                         class="ti-btn ti-btn-danger ti-btn-icon ms-1 ti-btn-sm invoice-btn"
                         wire:click="confirmDelete({{ $post->id }})"
-                        title="Eliminar blog"
+                        title="Eliminar publicación"
                     >
                         <i class="ri-delete-bin-5-line"></i>
                     </button>
