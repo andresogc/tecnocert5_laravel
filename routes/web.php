@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\VacancyController;
 use App\Livewire\Admin\Customers\Customers;
 use App\Livewire\Admin\ManageSite\HomeSections;
 use App\Livewire\Admin\ManageSite\LegalForms;
@@ -23,6 +25,10 @@ Route::get('/work', MainPages::class)->name('work')->defaults('page', 'work');
 Route::get('/contact', MainPages::class)->name('contact')->defaults('page', 'contact');
 Route::get('/questions', MainPages::class)->name('questions')->defaults('page', 'questions');
 
+Route::get('/blog-posts', [PostController::class, 'paginatePosts']);
+Route::get('/blog-post/{id}',[PostController::class,'getPost']);
+
+Route::get('/vacancies', [VacancyController::class, 'vacanciesPage']);
 
 
 /**rutas de panel de administrador TECNCOCERT (privada)*/

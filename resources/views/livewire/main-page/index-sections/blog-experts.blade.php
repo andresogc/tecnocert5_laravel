@@ -10,7 +10,7 @@
           </div>
         </div>
           
-            @include('layouts.public-partials.blogs.blog-tecnico')
+            @include('layouts.public-partials.blogs.blog-tecnico',['showPagination' => false])
       </div>
     </section>
 

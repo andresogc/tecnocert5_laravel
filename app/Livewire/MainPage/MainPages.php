@@ -7,6 +7,7 @@ use App\Models\Page;
 use App\Models\PageSection;
 use App\Models\Post;
 use App\Models\Section;
+use App\Models\Vacancy;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -16,59 +17,26 @@ class MainPages extends Component
 
     protected $paginationTheme = 'bootstrap';
 
-    public $page;
-    public $slug;
-    public $post;
-    public $previousPost;
-    public $nextPost;
+    public $currentPage;
+    public $selectedPost = null;
+    public $showModal = false;
+
 
     
-
-    public function mount($page = 'index',$slug = null)
+     public function mount($page = 'index',$slug = null)
     {
-        $this->page = $page;
-        $this->slug = $slug;
-       /*  dd($this->page, $this->slug); */
-        // 👇 si la página actual es "blog_detail", cargamos el blog
-        if ($this->page === 'blog_detail' && $this->slug) {
-            $this->post = Post::where('slug', $this->slug)->firstOrFail(); 
-
-            // Post anterior (uno más viejo)
-            $this->previousPost = Post::where(function ($query) {
-                    $query->where('published_at', '<', $this->post->published_at)
-                        ->orWhere(function ($q) {
-                            $q->where('published_at', $this->post->published_at)
-                                ->where('id', '<', $this->post->id);
-                        });
-                })
-                ->where('status', 'published')
-                ->orderBy('published_at', 'desc')
-                ->orderBy('id', 'desc')
-                ->first();
-
-            // Post siguiente (uno más nuevo)
-            $this->nextPost = Post::where(function ($query) {
-                    $query->where('published_at', '>', $this->post->published_at)
-                        ->orWhere(function ($q) {
-                            $q->where('published_at', $this->post->published_at)
-                                ->where('id', '>', $this->post->id);
-                        });
-                })
-                ->where('status', 'published')
-                ->orderBy('published_at', 'asc')
-                ->orderBy('id', 'asc')
-                ->first();
-
-        }
+        $this->currentPage = $page;
+       
     }
 
-    
+
+
     public function updatingPage()
     {
         $this->dispatch('scroll-to-top');
     }
 
-
+   
     public function render()
     {   
 
@@ -84,14 +52,14 @@ class MainPages extends Component
             'questions' => ['head' => 'head', 'header' => 'header','navbar' => 'navbar', 'footer' => 'footer'], 
         ];
 
-        $current = $layouts[$this->page] ?? $layouts['main-pages'];
+        $current = $layouts[$this->currentPage] ?? $layouts['index'];
        
         /*************** *
         seccion pagina principal
         ******************/
           //cargamos datos de la pagina principal index seccion hero.(La primera seccion)
 
-        $index = $this->page === 'index'
+        $index = $this->currentPage === 'index'
             ? Page::with([
                 'sections' => function ($query) {
                     $query->orderBy('order');
@@ -105,7 +73,7 @@ class MainPages extends Component
         /*************** *
         iso9001, gap analisis y auditoria interna, capacitacion, blog, work y contact
         ******************/
-        $iso9001 = $this->page === 'iso9001'
+        $iso9001 = $this->currentPage === 'iso9001'
             ? Page::with([
                 'sections' => function ($query) {
                     $query->orderBy('order');
@@ -116,7 +84,7 @@ class MainPages extends Component
             ])->where('slug', 'iso9001')->first()
             : null;
 
-        $gapAnalisis = $this->page === 'gap_analisis'
+        $gapAnalisis = $this->currentPage === 'gap_analisis'
             ? Page::with([
                 'sections' => function ($query) {
                     $query->orderBy('order');
@@ -127,7 +95,7 @@ class MainPages extends Component
             ])->where('slug', 'gap_analisis')->first()
             : null;
 
-        $auditoriaInterna = $this->page === 'auditoria_interna'
+        $auditoriaInterna = $this->currentPage === 'auditoria_interna'
             ? Page::with([
                 'sections' => function ($query) {
                     $query->orderBy('order');
@@ -138,7 +106,7 @@ class MainPages extends Component
             ])->where('slug', 'auditoria_interna')->first()
             : null;
 
-        $capacitacion = $this->page === 'capacitacion'
+        $capacitacion = $this->currentPage === 'capacitacion'
             ? Page::with([
                 'sections' => function ($query) {
                     $query->orderBy('order');
@@ -149,7 +117,7 @@ class MainPages extends Component
             ])->where('slug', 'capacitacion')->first()
             : null;
 
-        $blog = $this->page === 'blog'
+        $blog = $this->currentPage === 'blog'
         ? Page::with([
             'sections' => function ($query) {
                 $query->orderBy('order');
@@ -160,7 +128,7 @@ class MainPages extends Component
         ])->where('slug', 'blog')->first()
         : null;
 
-        $work = $this->page === 'work'
+        $work = $this->currentPage === 'work'
         ? Page::with([
             'sections' => function ($query) {
                 $query->orderBy('order');
@@ -171,7 +139,7 @@ class MainPages extends Component
         ])->where('slug', 'work')->first()
         : null;
 
-        $contact = $this->page === 'contact'
+        $contact = $this->currentPage === 'contact'
         ? Page::with([
             'sections' => function ($query) {
                 $query->orderBy('order');
@@ -183,7 +151,7 @@ class MainPages extends Component
         : null;
 
         
-        $questions = $this->page === 'questions'
+        $questions = $this->currentPage === 'questions'
         ? Page::with([
             'sections' => function ($query) {
                 $query->orderBy('order');
@@ -196,19 +164,18 @@ class MainPages extends Component
 
 
         /*************** *
-        secciones blog
+        listado de posts para la vista blog
         ******************/
+        $posts = Post::whereHas('media')
+            ->with(['media'])
+            ->orderBy('published_at','desc')
+            ->paginate(3);
+          
 
-         // 👇 Aquí cargamos los posts solo si estamos en "blog_tecnico"
-        /*   $posts = $this->page === 'blog_tecnico'
-                ? Post::where('status', 'published')
-                    ->latest('published_at')
-                    ->paginate(2)
-                : null; */
-
-
-        /* obtener jsons */
-       /*  $faqsSlider = json_decode(file_get_contents(public_path('main-page/data/faqs-slider.json')), true); */
+        /* datos para seccion work -- vacantes */
+        $vacancies = Vacancy::orderBy('published_at','asc')
+            ->where('status', 'active')
+            ->paginate(1);  
 
         $faqsSlider = json_decode(
             file_get_contents(storage_path('app/public/data/faqs-slider.json')),
@@ -232,7 +199,7 @@ class MainPages extends Component
             }
         }
     
-        return view("livewire.main-page.{$this->page}",[
+        return view("livewire.main-page.{$this->currentPage}",[
             //seccion pagina principal
             'index' => $index,
             //otras secciones
@@ -240,14 +207,14 @@ class MainPages extends Component
             'gapAnalisis'=>$gapAnalisis,
             'auditoriaInterna'=>$auditoriaInterna,
             'capacitacion' =>$capacitacion,
-            'blog' => $blog,
+            'blog' => $blog, 
             'work' => $work,
             'contact' => $contact,
             'questions'=>$questions,
-            //secciones post
-            'post' => $this->post,
-            'previousPost' => $this->previousPost,
-            'nextPost' => $this->nextPost,
+            //listado de posts para la vista blog(solo para la carga inicial ya que depues se usa un controlador para paginar y cargar los posts dinamicamente)
+            'posts' => $posts ,
+            //Datos de la vista work y vista index para llenar vacantes
+            'vacancies' => $vacancies,
             //jsons
             'data'=>[
                 'faqsSlider' => $faqsSlider,
@@ -259,7 +226,10 @@ class MainPages extends Component
                 'navbarType' => $current['navbar'],
                 'headerType' => $current['header'],
                 'footerType' => $current['footer'],
-                'legals' => $legals
+                'legals' => $legals,
+                'showModal' => $this->showModal,
+            'selectedPost' => $this->selectedPost,
+                
             ]);
 
 

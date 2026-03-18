@@ -1,3 +1,10 @@
+<div>
+<div class="modal-header">
+      <h2><span><i class="fa fa-laptop"></i></span> {{ $vacanteTitle ?? 'Vacante' }}</h2>
+      <button class="modal-close" onclick="closeVacanteModal()">
+        &times;
+      </button>
+    </div>
 <form wire:submit.prevent="send" id="formVacante" class="form-vacante">
     <div class="form-group">
         <label>Nombre *</label>
@@ -85,3 +92,4 @@
         <small>* Todos los campos son obligatorios excepto comentarios</small>
     </div>
 </form>
+</div>

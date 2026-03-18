@@ -203,85 +203,205 @@ window.addEventListener("mousemove", e => {
   </script>
 
 <!-- acordeon vacnate -->
-
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+function initVacancyAccordion() {
 
-      fetch('{{asset("main-page/data/vacante.json")}}')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('No se pudo cargar el JSON');
-          }
-          return response.json();
-        })
-        .then(faqs => {
-          const accordion = document.getElementById('accordion-vacante');
+    console.log('🔁 inicializando acordeón');
 
-          renderAccordion(faqs, accordion, 'accordion-vacante');
-          
-        })
-        .catch(error => {
-          console.error('Error cargando FAQs:', error);
-        });
+    // 🔥 buscar dentro del wrapper actualizado
+    const vacancyData = document.querySelector('#vacancies-wrapper [id^="vacancy-data"]');
+    if (!vacancyData) {
+        console.log('❌ no hay vacancy-data');
+        return;
+    }
 
-    function renderAccordion(faqList, container, accordionId) {
+    const accordion = document.getElementById('accordion-vacante');
+    if (!accordion) {
+        console.log('❌ no hay accordion');
+        return;
+    }
 
-          container.innerHTML = ""; // limpiar antes (opcional)
+    // limpiar
+    accordion.innerHTML = "";
 
-          faqList.forEach((faq, index) => {
-            const collapseId = `${accordionId}-collapse-${index}`;
-            const headingId = `${accordionId}-heading-${index}`;
+    // 🔥 parse seguro (evita errores si viene null)
+    const parse = (data) => {
+        try {
+            return JSON.parse(data || '[]');
+        } catch (e) {
+            return [];
+        }
+    };
 
-            // Si answer es un array -> crear lista
-            let answerHTML = "";
+    const faqs = [
+        { question: "Principales Funciones", answer: parse(vacancyData.dataset.responsibilities) },
+        { question: "Formación académica", answer: parse(vacancyData.dataset.academic) },
+        { question: "Experiencia", answer: parse(vacancyData.dataset.experience) },
+        { question: "Habilidades", answer: parse(vacancyData.dataset.skills) },
+        { question: "¿Qué puedes esperar de nosotros a cambio?", answer: parse(vacancyData.dataset.benefits) }
+    ];
 
-            if (Array.isArray(faq.answer)) {
-              answerHTML = "<ul>";
-              faq.answer.forEach(item => {
-                answerHTML += `<li>${item}</li>`;
-              });
-              answerHTML += "</ul>";
-            } else {
-              // Si no es array, mostrar texto normal
-              answerHTML = faq.answer;
-            }
+    faqs.forEach((faq, index) => {
 
-            container.innerHTML += `
-              <div class="card">
+        const collapseId = `accordion-vacante-collapse-${index}`;
+        const headingId = `accordion-vacante-heading-${index}`;
+
+        let answerHTML = Array.isArray(faq.answer)
+            ? `<ul>${faq.answer.map(item => `<li>${item}</li>`).join('')}</ul>`
+            : faq.answer;
+
+        accordion.insertAdjacentHTML('beforeend', `
+            <div class="card">
                 <div class="card-header p-0" id="${headingId}">
-                  <h2 class="mb-0">
-                    <button class="btn btn-link faq-btn collapsed text-left px-0" type="button"
-                      data-toggle="collapse"
-                      data-target="#${collapseId}"
-                      aria-expanded="false"
-                      aria-controls="${collapseId}">
-                      <i class="fa fa-question-circle icon-question"></i>
-                      ${faq.question}
-                    </button>
-                  </h2>
+                    <h2 class="mb-0">
+                        <button class="btn btn-link faq-btn collapsed text-left px-0"
+                                type="button"
+                                data-toggle="collapse"
+                                data-target="#${collapseId}"
+                                aria-expanded="false"
+                                aria-controls="${collapseId}">
+                            <i class="fa fa-question-circle icon-question"></i>
+                            ${faq.question}
+                        </button>
+                    </h2>
                 </div>
 
                 <div id="${collapseId}" class="collapse"
-                  aria-labelledby="${headingId}"
-                  data-parent="#${accordionId}">
-                  <div class="card-body">
-                    ${answerHTML}
-                  </div>
+                     aria-labelledby="${headingId}"
+                     data-parent="#accordion-vacante">
+                    <div class="card-body">
+                        ${answerHTML}
+                    </div>
                 </div>
-              </div>
-            `;
-          });
+            </div>
+        `);
+    });
+      
+      
+    setTimeout(() => {
+        if (window.$) {
+            $('#accordion-vacante .collapse').collapse({ toggle: false });
+        } else if (window.bootstrap) {console.log('✅ acordeón renderizado2');
+            document.querySelectorAll('#accordion-vacante .collapse')
+                .forEach(el => new bootstrap.Collapse(el, { toggle: false }));
+        }
+    }, 50);
+
+
+
+}
+
+
+
+// Inicializa el accordion en la primera carga
+document.addEventListener('DOMContentLoaded', initVacancyAccordion);
+
+// Re-inicializa cada vez que Livewire actualiza el DOM (paginación)
+
+
+
+</script>
+
+{{-- <script>
+function initVacancyAccordion() {
+
+    // Seleccionamos la vacante actual
+    const vacancyData = document.querySelector('[id^="vacancy-data"]');
+    if (!vacancyData) return;
+
+    const accordion = document.getElementById('accordion-vacante');
+    if (!accordion) return;
+
+    // Limpiar contenido previo
+    accordion.innerHTML = "";
+
+    // Creamos los FAQs a partir del dataset
+    const faqs = [
+        {
+            question: "Principales Funciones",
+            answer: JSON.parse(vacancyData.dataset.responsibilities)
+        },
+        {
+            question: "Formación académica",
+            answer: JSON.parse(vacancyData.dataset.academic)
+        },
+        {
+            question: "Experiencia",
+            answer: JSON.parse(vacancyData.dataset.experience)
+        },
+        {
+            question: "Habilidades",
+            answer: JSON.parse(vacancyData.dataset.skills)
+        },
+        {
+            question: "¿Qué puedes esperar de nosotros a cambio?",
+            answer: JSON.parse(vacancyData.dataset.benefits)
+        }
+    ];
+
+    // Renderizamos el accordion
+    renderAccordion(faqs, accordion, 'accordion-vacante');
+}
+
+function renderAccordion(faqList, container, accordionId) {
+
+    // Limpiar container por si acaso
+    container.innerHTML = "";
+
+    faqList.forEach((faq, index) => {
+
+        const collapseId = `${accordionId}-collapse-${index}`;
+        const headingId = `${accordionId}-heading-${index}`;
+
+        // Generar HTML de la respuesta
+        let answerHTML = "";
+        if (Array.isArray(faq.answer)) {
+            answerHTML = "<ul>";
+            faq.answer.forEach(item => {
+                answerHTML += `<li>${item}</li>`;
+            });
+            answerHTML += "</ul>";
+        } else {
+            answerHTML = faq.answer;
         }
 
-
+        // Insertar en el container
+        container.innerHTML += `
+            <div class="card">
+                <div class="card-header p-0" id="${headingId}">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link faq-btn collapsed text-left px-0"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#${collapseId}"
+                            aria-expanded="false"
+                            aria-controls="${collapseId}">
+                            <i class="fa fa-question-circle icon-question"></i>
+                            ${faq.question}
+                        </button>
+                    </h2>
+                </div>
+                <div id="${collapseId}" class="collapse"
+                    aria-labelledby="${headingId}"
+                    data-parent="#${accordionId}">
+                    <div class="card-body">
+                        ${answerHTML}
+                    </div>
+                </div>
+            </div>
+        `;
     });
-  </script>
+}
 
+// Ejecutar al cargar la página
+document.addEventListener('DOMContentLoaded', initVacancyAccordion);
 
-
-
-
-
+// Ejecutar cada vez que Livewire cambia de página
+Livewire.hook('message.processed', (message, component) => {
+    console.log('Livewire message processed, inicializando acordeon');
+    initVacancyAccordion();
+});
+</script> --}}
 
 
 <!-- para abrir acodderon al hacer hover -->
