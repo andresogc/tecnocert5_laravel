@@ -131,7 +131,7 @@
 
                             <div class="box">
                                 <div class="box-header">
-                                    <div class="box-title">Imagen destacada <span class="text-muted">(tamaño recomendado: 750 × 375 px — máximo 2 MB)</span></div>
+                                    <div class="box-title">Imagen destacada <span class="text-muted">(tamaño recomendado: 1000 × 650 px — máximo 2 MB)</span></div>
                                 </div>
                                 <div class="box-body">
                                     <div class="grid grid-cols-12 sm:gap-6">
@@ -143,16 +143,9 @@
 
                                         <div class="xxl:col-span-6 xl:col-span-6 lg:col-span-12 md:col-span-12 sm:col-span-12 col-span-12">
                                             @if ($currentMediaUrl)
-                                                <div class="mt-4 mb-6">
-                                                    
-
+                                                <div class="mt-4 mb-6"> 
                                                     @if ($currentMediaType === 'image')
                                                         <img src="{{ asset($currentMediaUrl) }}" alt="Fondo actual" class="rounded-lg shadow-md object-cover w-[300px] h-[180px]">
-                                                    @elseif ($currentMediaType === 'video')
-                                                        <video controls class="rounded-lg shadow-md max-h-60" autoplay muted loop>
-                                                            <source src="{{ asset($currentMediaUrl) }}" type="video/mp4">
-                                                            Tu navegador no soporta la reproducción de video.
-                                                        </video>
                                                     @endif
                                                     <label class="box-title block text-sm font-medium text-gray-700 mb-2">Archivo actual</label>
                                                 </div>

@@ -12,7 +12,7 @@ class PostController extends Controller
     $posts = Post::with('author','media')
         ->orderBy('published_at','desc')
         ->paginate(6);
-
+    dd($posts);
     return view('partials.blog-posts', compact('posts'))->render();
 }
 
@@ -23,7 +23,9 @@ public function getPost($id)
     return response()->json([
         'title'=>$post->title,
         'image'=>$post->media->first()->url ?? '',
-        'content'=>$post->content
+        'content'=>$post->content,
+        'icons'=>$post->icons,
+        'excerpt'=>$post->excerpt,
     ]);
 }
 }

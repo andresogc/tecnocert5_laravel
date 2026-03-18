@@ -4,13 +4,7 @@
     <div class="modal-blog-tecnico-content">
 
       <div class="modal-header">
-
-        <div style="color:#0B1A42">
-          <span><i class="fa fa-laptop"></i></span>
-
-          <h2 id="modalTitle" style="display:inline;"></h2>
-        </div>
-
+        <div id="modalTitle" style="color: #0B1A42"><span><i class="fa fa-laptop"></i></span> </div>
         <button class="modal-close" onclick="closeBlogTecnicoModal()">
           &times;
         </button>
@@ -96,6 +90,7 @@
           padding-bottom: 10px;
           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
           flex-shrink: 0;
+          
           /* Evita que se reduzca */
         }
 
@@ -326,6 +321,7 @@
         width: 100%;
         border-radius: 8px;
         margin-bottom: 15px;
+        margin-right: 30px;
       }
 
       .modal-body p {
@@ -350,26 +346,35 @@
       }
 
       /* Texto fluido y justificado */
-      #modalText {
+      .modal-text {
         font-family: "Poppins", Arial, sans-serif;
         text-align: justify;
         font-size: 14px;
-        line-height: 1.2;
-        white-space: pre-line;
-        margin-top: -18px;
+        line-height: 1.5;
+        /* white-space: pre-line; */
+        /* margin-top: -18px; */
         padding-right:20px;
         color: #0B1A42
       }
 
-      #modalText .paragraph{
+      .modal-text p{
         font-family: "Poppins", Arial, sans-serif;
         font-size: 14px;
-        line-height: 1.8;
+        line-height: 1.5;
         font-weight: 400;
         padding-right:20px;
         color: #0B1A42;
-        
+      /*   margin-bottom: 0 !important; */
+        margin-top: 0;
+        margin-bottom: 8px; /* 👈 controla separación real */
       }
+
+       .modal-text li{
+         text-align: justify;
+          padding-right: 20px;
+       }
+
+
       /* Limpiar float después del texto para evitar bugs */
       .modal-body::after {
         content: "";
@@ -384,8 +389,8 @@
         display: flex;
         justify-content: center;
         gap: 25px;
-        margin-top: -30px;
-        margin-bottom: -70px;
+       /*  margin-top: -30px;
+        margin-bottom: -70px; */
       }
 
       .modal-icon-circle{

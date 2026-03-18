@@ -53,13 +53,47 @@ document.addEventListener("click", function(e){
   .then(res=>res.json())
   .then(post=>{
 
-    document.getElementById("modalTitle").innerHTML = post.title;
-    document.getElementById("modalImage").src = post.image;
-    document.getElementById("modalText").innerHTML = post.content;
+        // Referencias a elementos del modal
+      const modalTitle = document.getElementById("modalTitle");
+      const modalImage = document.getElementById("modalImage");
+      const modalText  = document.getElementById("modalText");
+      const modal      = document.getElementById("modalBlogTecnico");
 
-    document.getElementById("modalBlogTecnico").classList.add("active");
+      // Setear contenido base
+      modalTitle.innerHTML = `<h2>${post.title}</h2>`;
+      modalImage.src = post.image;
 
-  });
+      // Limpiar y cargar contenido principal
+      modalText.innerHTML = post.content;
+
+      
+
+      // Render de iconos (si existen)
+      if (post.icons && post.icons.length > 0) {
+
+          let iconsHTML = post.icons.map(i => `
+              <div class="modal-icon-item">
+                  <div class="modal-icon-circle">
+                      <i class="${i.icon}"></i>
+                  </div>
+                  <p class="modal-icon-label">${i.text}</p>
+              </div>
+          `).join('');
+
+          const htmlIcons = `
+              <div class="modal-icons-box">
+                  ${iconsHTML}
+              </div>
+          `;
+
+          // Insertar correctamente (sin error de appendChild)
+          modalText.insertAdjacentHTML('beforeend', htmlIcons);
+      }
+
+      // Mostrar modal
+      modal.classList.add("active");
+
+    });
 
 });
 

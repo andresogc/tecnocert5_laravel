@@ -21,7 +21,7 @@
 
             <h3 class="heading">
                 <a href="#" class="blog-post-link" data-id="{{ $post->id }}">
-                {!! $post->title !!}
+                {!! $post->excerpt !!}
                 </a>
             </h3>
 

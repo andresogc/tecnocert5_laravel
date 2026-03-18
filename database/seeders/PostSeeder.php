@@ -48,18 +48,15 @@ class PostSeeder extends Seeder
             'id' => 2,
             'title' => '¿SABÍAS QUÉ LA NORMA ISO 9001 ENTRARÁ EN ACTUALIZACIÓN?',
             'slug' => Str::slug('La norma ISO 9001:2026'),
-            'excerpt' => 'La norma ISO 9001:2026 será la próxima revisión del estándar de Sistemas de Gestión de la Calidad (SGC), prevista para su publicación definitiva en 2026, sustituyendo a la versión 2015.',
+            'excerpt' => '¿Sabías que la norma <strong>ISO9001</strong> entrará en actualización?',
             'content' => '<p>La norma ISO 9001:2026 será la próxima revisión del estándar de Sistemas de Gestión de la Calidad (SGC), prevista para su publicación definitiva en 2026, sustituyendo a la versión 2015. Mantendrá la estructura de alto nivel (Anexo SL), incorporando enfoques modernos como digitalización, sostenibilidad, cultura de calidad, resiliencia organizacional y conducta ética, buscando adaptarse a los retos globales actuales. No obstante, nos encontramos a la confirmación y publicación final de los posibles cambios.</p>
-
-                <p><strong>Estado Actual y Transición;</strong></p>
-
-                <p><li><strong>Fases:</strong> Actualmente, se están revisando los borradores internos (DIS - Draft International Standard). Se espera que el borrador final (FDIS) se publique alrededor del tercer o cuarto trimestre de 2026.</li></p>
-
-                <p><li><strong>Transición:</strong> Las organizaciones certificadas deberán realizar la transición en un período previsto de 3 años (hasta finales de 2029).</li></p>
-
-                <p><li><strong>Impacto:</strong> Se anticipan cambios moderados enfocados en mejorar la relevancia de la norma en un entorno empresarial cambiante.</li></p>
-
-                <p>Para las organizaciones, esta actualización representa una oportunidad para realinear sus sistemas de gestión con los objetivos estratégicos y asegurar la continuidad en el cumplimiento de los estándares de calidad modernos.</p>',
+            <p><strong>Estado Actual y Transición;</strong></p>
+            <ul>
+                <li><strong>Fases:</strong> Actualmente, se están revisando los borradores internos (DIS - Draft International Standard). Se espera que el borrador final (FDIS) se publique alrededor del tercer o cuarto trimestre de 2026.</li>
+                <li><strong>Transición:</strong> Las organizaciones certificadas deberán realizar la transición en un período previsto de 3 años (hasta finales de 2029).</li>
+                <li><strong>Impacto:</strong> Se anticipan cambios moderados enfocados en mejorar la relevancia de la norma en un entorno empresarial cambiante.</li>
+            </ul>
+            <p>Para las organizaciones, esta actualización representa una oportunidad para realinear sus sistemas de gestión con los objetivos estratégicos y asegurar la continuidad en el cumplimiento de los estándares de calidad modernos.</p>',
             'icons' => [],
             'status' => 'published',
             'author_id' => 1,
@@ -71,7 +68,7 @@ class PostSeeder extends Seeder
             'id' => 3,
             'title' => '¿SABÍAS QUÉ?',
             'slug' => Str::slug('Sí certificas tu empresa'),
-            'excerpt' => 'Sí certificas tu empresa en <strong>ISO 9001:2015</strong>, tu certificado de <strong>RETIE y RETILAP</strong> pueden llegar a tener una vigencia por 5 años.',
+            'excerpt' => '¿Sabías qué?. Sí certificas tu empresa en <strong>ISO 9001:2015.</strong>',
             'content' => '<p>Sí certificas tu empresa en <strong>ISO 9001:2015</strong>, tu certificado de <strong>RETIE y RETILAP</strong> pueden llegar a tener una vigencia por 5 años.</p>
 
                 <p>De acuerdo con la <strong>RESOLUCIÓN NÚMERO 40150 RETILAP y 40117 RETIE.</strong> Al contar con un sistema de gestión de calidad ISO 9001:2015 certificado, tu certificado de <strong>RETIE</strong> y <strong>RETILAP</strong> pasa a esquema 5, y tendrán una validez por 5 años, con vigilancia a los 12 y 32 meses desde la emisión del certificado. Adicional la revisión sería documental.</p>',
