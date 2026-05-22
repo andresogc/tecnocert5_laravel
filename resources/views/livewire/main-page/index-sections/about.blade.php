@@ -3,8 +3,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 car-animation">
-            <img src="{{asset('main-page/images/auto_img_1_3.jpg')}}" alt="" style="max-width: 500px;">
-
+            <img src="{{asset('main-page/images/auto_img_1_3.jpg')}}" alt="Sobre Nosotros" class="img-fluid" style="max-width: 500px;">
           </div>
           <div class="col-md-6 ">
             <h1 style="line-height: 1.5;

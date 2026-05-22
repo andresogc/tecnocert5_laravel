@@ -9,7 +9,7 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-10 ftco-animate">
-            <div class="text w-100 text-center" style="padding-bottom: 120px;">
+            <div class="text w-100 text-center hero-text-container">
               <h2>CERTIFICAMOS SISTEMAS DE GESTIÓN DE ALTO IMPACTO</h2>
               <h1 class="mb-4">
                 Donde la verdad, la excelencia y el compromiso fortalecen la
@@ -30,7 +30,7 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-10 ftco-animate">
-            <div class="text w-100 text-center" style="padding-bottom: 120px;">
+            <div class="text w-100 text-center hero-text-container">
               <h2>
                 Impulsamos organizaciones con certificaciones que generan
                 confianza y excelencia.
@@ -53,7 +53,7 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-10 ftco-animate">
-            <div class="text w-100 text-center" style="padding-bottom: 120px;">
+            <div class="text w-100 text-center hero-text-container">
               <h2>
                 Aseguramos la calidad de tus procesos con certificaciones
                 que transforman resultados.
@@ -75,8 +75,8 @@
 <!-- Hero Section End -->
 <!-- franja azul start-->
 <section class="ftco-section ftco-no-pb ftco-no-pt">
-  <div class="">
-    <div class="row">
+  <div class="container-fluid p-0">
+    <div class="row no-gutters">
       <div class="col-md-12">
         <div class="bg-secondary w-100 rounded p-2" style="border-radius: 0 !important;">
           <div class="row">

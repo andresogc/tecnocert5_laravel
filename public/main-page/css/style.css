@@ -50,6 +50,7 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow-x: hidden;
 }
 
 figcaption,
@@ -73,6 +74,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+  overflow-x: hidden;
 }
 
 [tabindex="-1"]:focus {
@@ -4968,4 +4970,40 @@ textarea.form-control {
  background:white !important;
 color: #587eec !important;
 
+}
+
+/* Ajustes responsivos para el Hero principal */
+.hero-text-container {
+  padding-bottom: 120px; /* Mantiene el espacio original en desktop */
+}
+
+@media (max-width: 767.98px) {
+  .hero-text-container {
+    padding-bottom: 0 !important; /* Eliminamos el offset para permitir el centrado vertical puro */
+  }
+  .owl-carousel.home-slider,
+  .owl-carousel.home-slider .slider-item,
+  .owl-carousel.home-slider .slider-item .slider-text {
+    height: 550px !important; /* Reducimos la altura en móvil para que el contenido luzca centrado en el viewport */
+  }
+  .hero-wrap .slider-text h1 {
+    font-size: 26px !important; /* Título más pequeño en móvil para ahorrar espacio */
+  }
+  .hero-wrap .slider-text h2 {
+    font-size: 14px !important;
+  }
+
+  /* Asegurar que la imagen del auto sea visible y responsiva en móviles */
+  .car-animation {
+    opacity: 1 !important;
+    transform: none !important;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .car-animation img {
+    max-width: 100% !important; /* Anula el max-width: 500px inline solo en móviles */
+    height: auto;
+    display: block !important;
+    margin: 0 auto !important;
+  }
 }
