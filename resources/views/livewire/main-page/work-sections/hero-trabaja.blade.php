@@ -15,7 +15,7 @@
           <h1 class="mb-0 bread"><!-- ISO 9001:2015 --></h1>
 
 
-          <div class="text w-100 text-center" style="padding-bottom: 100px;width: 60% !important;margin-right: 50px;">
+          <div class="text w-100 text-center" style="padding-bottom: 100px;width: 60% !important;margin-right: -219px;">
             <h2 style="font-size: 16px;
               text-transform: uppercase;
               letter-spacing: 2px;

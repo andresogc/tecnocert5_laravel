@@ -4,3 +4,11 @@ Correr el prioeycto :
 2 php artisan serve
 *--*******************************************
 
+para correr y ver desde celular:
+
+php artisan serve --host=0.0.0.0 --port=8000
+
+
+Con el celular conectado al mismo Wi-Fi, abre el navegador y entra a:
+
+http://192.168.1.35:8000   ///cambiar la ip local  por la del computador.

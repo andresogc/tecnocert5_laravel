@@ -33,8 +33,8 @@ class VerificationFormMail extends Mailable
     {
         $this->numero_certificado = $numero_certificado;
         $this->nombre_empresa = $nombre_empresa;
-        $this->norma_certificada = $norma_certificada;
-        $this->correo = $correo;
+        $this->norma_certificada = $norma_certificada ?? 'No especificada';
+        $this->correo = $correo ?? 'No especificado';
         $this->comentarios = $comentarios;
     }
 
