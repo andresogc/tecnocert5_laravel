@@ -141,8 +141,12 @@
                 <div class="row mt-md-5">
 					<div class="col-md-12 d-md-flex justify-content-between align-items-center text-center text-md-left">
 						<p class="mb-0">
-							 <a href="{{ route('login') }}" style="color:rgba(255, 255, 255, 0.5);"><li> Portal Administrativo</li></a>
+							 <a href="{{ route('login') }}" style="color:rgba(255, 255, 255, 0.5);" target="_blank"> Portal Administrativo</a>
 						</p>
+                        <p class="mb-0" >
+                            |
+                        </p>
+
 						<p class="copyright mb-0 text-md-right" style="color:rgba(255, 255, 255, 0.5);">
 							Copyright &copy;
 							<script>
