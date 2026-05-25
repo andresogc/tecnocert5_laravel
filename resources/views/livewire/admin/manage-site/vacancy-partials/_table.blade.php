@@ -19,7 +19,7 @@ use Illuminate\Support\Str;
                 <th scope="col" class="text-start">Estado</th>  
                 <th scope="col" class="text-start">Fecha Pub.</th>
                 <th scope="col" class="text-start">Fecha de creación</th>
-                <th scope="col" class="text-start">Action</th>
+                <th scope="col" class="text-start">Accción</th>
             </tr>
         </thead>
         <tbody>

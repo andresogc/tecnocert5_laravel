@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
                 <th scope="col" class="text-start">Nombre del archivo</th>
                 <th scope="col" class="text-start">Actualizado por</th>
                 <th scope="col" class="text-start">Fecha de actualización</th>
-                <th scope="col" class="text-start">Action</th>
+                <th scope="col" class="text-start">Accción</th>
             </tr>
         </thead>
         <tbody>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\VacancyController;
 use App\Livewire\Admin\Customers\Customers;
+use App\Livewire\Admin\ManageSite\Dashboards;
 use App\Livewire\Admin\ManageSite\HomeSections;
 use App\Livewire\Admin\ManageSite\LegalForms;
 use App\Livewire\Admin\ManageSite\LegalSections;
@@ -11,6 +12,7 @@ use App\Livewire\Admin\ManageSite\PostSections;
 use App\Livewire\Admin\ManageSite\VacancyForms;
 use App\Livewire\Admin\ManageSite\VacancySections;
 use App\Livewire\MainPage\MainPages;
+use App\Models\Vacancy;
 use Illuminate\Support\Facades\Route;
 
 
@@ -32,9 +34,16 @@ Route::get('/vacancies', [VacancyController::class, 'vacanciesPage']);
 
 
 /**rutas de panel de administrador TECNCOCERT (privada)*/
-Route::view('dashboard', 'dashboard')
+/* Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard'); */
+
+
+Route::get('dashboard', Dashboards::class)
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+
 Route::get('home-sections/{pageSection}', HomeSections::class)
     ->middleware(['auth', 'verified'])
     ->name('homeSections');
