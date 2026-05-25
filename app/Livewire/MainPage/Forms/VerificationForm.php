@@ -20,8 +20,8 @@ class VerificationForm extends Component
      protected $rules = [
         'numero_certificado' => 'required|max:200',
         'nombre_empresa' => 'required|max:200',
-        'norma_certificada' => 'required',
-        'correo' => 'required|email|max:150',
+        'norma_certificada' => 'nullable|max:200',
+        'correo' => 'nullable|email|max:150',
         'comentarios' => 'nullable|max:1500'
     ];
 

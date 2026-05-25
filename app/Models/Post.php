@@ -10,6 +10,7 @@ class Post extends Model
 
     protected $casts = [
         'icons' => 'array',
+        'published_at' => 'datetime',
     ];
 
     // Relación: post pertenece a un autor (user)

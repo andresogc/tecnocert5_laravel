@@ -1,56 +1,118 @@
- <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry align-self-stretch">
-              <a href="#" onclick="openBlogTecnicoModal(1);return false;" class="block-20 rounded" style="background-image: url('{{ asset("main-page/images/image_1.jpg") }}')">
-              </a>
-              <div class="text mt-3">
-                <div class="meta mb-2">
-                  <div><a href="#">Enero 30, 2026</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div>
-                    <!--<a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a>-->
+
+<div>
+  <div id="blog-posts-container " class="row ">
+      @include('layouts.public-partials.blogs.blog-posts',['posts'=>$posts,'showPagination' => $showPagination ?? true])
+  </div>
+  @include('layouts.public-partials.modals.modal-blog-tecnico')
+</div>
+
+
+
+@push('scripts')
+<script>
+
+document.addEventListener("click", function(e){
+
+  /* if(e.target.closest(".pagination a")){
+
+    e.preventDefault();
+
+    let url = e.target.closest("a").href;
+
+    fetch(url)
+    .then(res=>res.text())
+    .then(html=>{
+
+    document.querySelector("#blog-posts-container").innerHTML = html;
+
+      window.scrollTo({
+        top:document.querySelector("#blog-posts-container").offsetTop - 120,
+        behavior:"smooth"
+      });
+
+    });
+
+  } */
+
+});
+
+</script>
+<script>
+
+document.addEventListener("click", function(e){
+
+  let link = e.target.closest(".blog-post-link");
+
+  if(!link) return;
+
+  e.preventDefault();
+
+  let id = link.dataset.id;
+
+  fetch("/blog-post/"+id)
+  .then(res=>res.json())
+  .then(post=>{
+
+        // Referencias a elementos del modal
+      const modalTitle = document.getElementById("modalTitle");
+      const modalImage = document.getElementById("modalImage");
+      const modalText  = document.getElementById("modalText");
+      const modal      = document.getElementById("modalBlogTecnico");
+
+      // Setear contenido base
+      modalTitle.innerHTML = `<h2>${post.title}</h2>`;
+      modalImage.src = post.image;
+
+      // Limpiar y cargar contenido principal
+      modalText.innerHTML = post.content;
+
+      
+
+      // Render de iconos (si existen)
+      if (post.icons && post.icons.length > 0) {
+
+          let iconsHTML = post.icons.map(i => `
+              <div class="modal-icon-item">
+                  <div class="modal-icon-circle">
+                      <i class="${i.icon}"></i>
                   </div>
-                </div>
-                <h3 class="heading">
-                  <a href="#" onclick="openBlogTecnicoModal(1);return false;"><strong>TECNOCERT</strong> llega al mercado de certificación de Sistemas de Gestión</a>
-                </h3>
+                  <p class="modal-icon-label">${i.text}</p>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry align-self-stretch">
-              <a href="#" onclick="openBlogTecnicoModal(2);return false;"  class="block-20 rounded" style="background-image: url('{{ asset("main-page/images/image_2.jpg") }}')">
-              </a>
-              <div class="text mt-3">
-                <div class="meta mb-2">
-                  <div><a href="#">Febrero 02, 2026</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div>
-                    <!--<a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a>-->
-                  </div>
-                </div>
-                <h3 class="heading">
-                  <a href="#" onclick="openBlogTecnicoModal(2);return false;">¿Sabías que la norma<strong> ISO9001 </strong>entrará en actualización? </a>
-                </h3>
+          `).join('');
+
+          const htmlIcons = `
+              <div class="modal-icons-box">
+                  ${iconsHTML}
               </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry align-self-stretch">
-              <a href="" onclick="openBlogTecnicoModal(3);return false;"  class="block-20 rounded" style="background-image: url('{{ asset("main-page/images/image_3.jpg") }}')">
-              </a>
-              <div class="text mt-3">
-                <div class="meta mb-2">
-                  <div><a href="#">Febrero 06, 2026</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div>
-                    <!--<a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a>-->
-                  </div>
-                </div>
-                <h3 class="heading">
-                  <a href="#" onclick="openBlogTecnicoModal(3);return false;"  >¿Sabías qué?. Sí certificas tu empresa en <Strong>ISO 9001:2015.</Strong></a>
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
+          `;
+
+          // Insertar correctamente (sin error de appendChild)
+          modalText.insertAdjacentHTML('beforeend', htmlIcons);
+      }
+
+      // Mostrar modal
+      modal.classList.add("active");
+
+    });
+
+});
+
+function closeBlogTecnicoModal(){
+    document.getElementById("modalBlogTecnico").classList.remove("active");
+}
+
+document.addEventListener("click", function(e){
+
+let modal = document.getElementById("modalBlogTecnico");
+
+if(!modal) return;
+
+/* Si el modal está abierto y el clic fue en el fondo */
+if(e.target === modal){
+    closeBlogTecnicoModal();
+}
+
+});
+</script>
+    
+@endpush

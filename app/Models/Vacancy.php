@@ -26,6 +26,7 @@ class Vacancy extends Model
         'experience_requirements' => 'array',
         'skills' => 'array',
         'benefits' => 'array',
+        'published_at' => 'datetime',
     ];
 
     public function media()

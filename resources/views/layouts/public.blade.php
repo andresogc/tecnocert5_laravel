@@ -30,7 +30,10 @@
   
   @include('layouts.public-partials.modals.modal-certificado')
 
-  @include('layouts.public-partials.modals.modal-blog-tecnico')
+{{--   @include('layouts.public-partials.modals.modal-blog-tecnico', [
+    'showModal' => $showModal,
+    'selectedPost' => $selectedPost
+]) --}}
 
   @include('layouts.public-partials.scripts.scripts-js')
   

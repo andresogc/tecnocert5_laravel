@@ -221,7 +221,7 @@ p.lead {
   :root { --hex-w:120px; }
   .hex-grid {
     grid-template-columns: repeat(2, calc(var(--w) * 0.866));
-    gap:10px;
+    gap: calc(var(--hex-w) * 0.3) !important;
   }
   .hex > .card { padding:10px 12px; }
   .num { width:48px; height:48px; font-size:14px; }
@@ -316,10 +316,11 @@ p.lead {
 
   /* Layout vertical */
   .hex-grid {
+    margin-left: 0 !important; /* Anula el margen inline de 80px solo en mobile */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 28px;
+    gap: calc(var(--hex-w) * 0.3) !important; /* Espacio exacto para unir las puntas de los rombos */
   }
 
   /* quitar offsets hex */
@@ -330,6 +331,7 @@ p.lead {
 
   .hex {
     width: 100%;
+    height: auto !important; /* Permite que el gap se aplique sobre el borde real de la tarjeta */
     grid-column: auto !important;
     display: flex;
     justify-content: center;
@@ -682,11 +684,3 @@ if (idx === 1) {
   window.addEventListener("resize", drawEdgeLines);
 });
 </script>
-
-
-
-
-
-
-
-

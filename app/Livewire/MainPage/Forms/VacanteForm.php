@@ -12,8 +12,9 @@ use Livewire\WithFileUploads;
 class VacanteForm extends Component
 {   
 
-     use WithFileUploads;
+    use WithFileUploads;
 
+    protected $listeners = ['setVacanteData'];
 
     public $name;
     public $last_name;
@@ -21,6 +22,9 @@ class VacanteForm extends Component
     public $email;
     public $observation;
     public $cv_file;
+
+    public $vacanteId;
+    public $vacanteTitle;
 
     protected $rules = [
         'name' => 'required|string|max:100',
@@ -31,7 +35,11 @@ class VacanteForm extends Component
         'cv_file' => 'required|file|mimes:pdf|max:2048'
     ];
 
-
+    public function setVacanteData($id, $title)
+    {   
+        $this->vacanteId = $id;
+        $this->vacanteTitle = $title;
+    }
 
     public function send()
     {   
@@ -47,7 +55,8 @@ class VacanteForm extends Component
                 $this->phone,
                 $this->email,
                 $this->observation,
-                $this->cv_file
+                $this->cv_file,
+                $this->vacanteTitle
             ));
 
 

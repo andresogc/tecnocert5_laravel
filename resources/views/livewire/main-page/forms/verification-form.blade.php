@@ -6,13 +6,12 @@
 
       <div class="form-group">
         <label>Nombre de empresa *</label>
-        <input type="text" class="form-control" placeholder="Nombre completo de la empresa" name="nombre_empresa" wire:model="nombre_empresa"
-          required />
+        <input type="text" class="form-control" placeholder="Nombre completo de la empresa" name="nombre_empresa" required wire:model="nombre_empresa" />
       </div>
 
       <div class="form-group">
-        <label>Norma certificada *</label>
-        <select class="form-control" name="norma_certificada" required wire:model="norma_certificada">
+        <label>Norma certificada </label>
+        <select class="form-control" name="norma_certificada"  wire:model="norma_certificada">
           <option value="">Selecciona la norma</option>
           <option value="ISO 9001:2015 - Sistema de Gestión de Calidad">
             ISO 9001:2015 - Sistema de Gestión de Calidad
@@ -37,8 +36,8 @@
       </div>
 
       <div class="form-group">
-        <label>Correo electrónico para respuesta *</label>
-        <input type="email" class="form-control" placeholder="correo@empresa.com" name="correo" required  wire:model="correo"/>
+        <label>Correo electrónico para respuesta </label>
+        <input type="email" class="form-control" placeholder="correo@empresa.com" name="correo"   wire:model="correo"/>
       </div>
 
       <div class="form-group">

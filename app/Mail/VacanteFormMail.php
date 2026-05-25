@@ -20,11 +20,12 @@ class VacanteFormMail extends Mailable
     public $email;
     public $observation;
     public $cv_file;
+    public $vacanteTitle;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($name, $last_name, $phone, $email, $observation, $cv_file)
+    public function __construct($name, $last_name, $phone, $email, $observation, $cv_file,$title)
     {
         $this->name = $name;
         $this->last_name = $last_name;
@@ -32,6 +33,7 @@ class VacanteFormMail extends Mailable
         $this->email = $email;
         $this->observation = $observation;
         $this->cv_file = $cv_file;
+        $this->vacanteTitle = $title;
     }
 
    
@@ -41,7 +43,7 @@ class VacanteFormMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'SOLICITUD DE VACANTE - AUDITOR FREELANCE ISO 9001 -  TECNOCERT',
+            subject: 'SOLICITUD DE VACANTE - '. $this->vacanteTitle .' -  TECNOCERT',
         );
     }
 

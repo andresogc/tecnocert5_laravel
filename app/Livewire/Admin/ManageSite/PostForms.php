@@ -42,7 +42,7 @@ class PostForms extends Component
             $this->status = $this->editPost->status;
 
             // Si tiene imagen actual
-            $media = $this->editPost->media()->where('role', 'thumbnail')->first();
+            $media = $this->editPost->media()->where('role', 'gallery')->first();
             if ($media) {
                 $this->currentMediaType = $media->type;
                 $this->currentMediaUrl = $media->url;
@@ -131,7 +131,7 @@ class PostForms extends Component
                         'url' => Storage::url($path), // Devuelve /storage/...
                         'alt_text' => $type === 'image' ? $this->title : null,
                         'order' => 0,
-                        'role' => 'thumbnail',
+                        'role' => 'gallery',
                     ]);
                 }
 

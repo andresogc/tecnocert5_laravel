@@ -1,11 +1,6 @@
 <div class="modal-vacante" id="modalVacante">
   <div class="modal-vacante-content">
-    <div class="modal-header">
-      <h2><span><i class="fa fa-laptop"></i></span> Vacante</h2>
-      <button class="modal-close" onclick="closeVacanteModal()">
-        &times;
-      </button>
-    </div>
+    
     <livewire:main-page.forms.vacante-form />
   </div>
 </div>
@@ -263,50 +258,61 @@
   }
 
   .file-upload {
-  border: 2px dashed #ccc;
-  padding: 12px;
-  border-radius: 8px;
-  text-align: center;
-  cursor: pointer;
-  background: #f8f9fa;
-  transition: 0.3s;
-  position: relative;
-}
+    border: 2px dashed #ccc;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    background: #f8f9fa;
+    transition: 0.3s;
+    position: relative;
+  }
 
-.file-upload:hover {
-  border-color: #0e4e96;
-  background: #eef5ff;
-}
+  .file-upload:hover {
+    border-color: #0e4e96;
+    background: #eef5ff;
+  }
 
-.file-upload input[type="file"] {
-  opacity: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
+  .file-upload input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
 
-.file-upload label {
-  cursor: pointer;
-  color: #0e4e96;
-  font-weight: 600;
-}
+  .file-upload label {
+    cursor: pointer;
+    color: #0e4e96;
+    font-weight: 600;
+  }
 
-#fileName {
-  display: block;
-  margin-top: 6px;
-  font-size: 13px;
-  color: #555;
-}
+  #fileName {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #555;
+  }
 
 </style>
 <script>
   // Función para abrir el modal de vacante
-  function openVacanteModal() {
-    document.getElementById("modalVacante").classList.add("active");
-    document.body.style.overflow = "hidden"; // Previene el scroll
+  function openVacanteModal(id, title) { 
+    /* document.getElementById("modalVacante").classList.add("active");
+    document.body.style.overflow = "hidden"; // Previene el scroll */
+    const modal = document.getElementById("modalVacante");
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+
+    // 🔥 Enviar datos a Livewire
+    Livewire.dispatch('setVacanteData', {
+        id: id,
+        title: title
+    });
+
+
   }
 
   // Función para cerrar el modal de vacante
