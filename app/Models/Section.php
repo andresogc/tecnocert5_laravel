@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Section extends Model
 {
+    protected $fillable = [
+        'name', 'title', 'content'
+    ];
+
 
     protected $casts = [
         'content' => 'array'
