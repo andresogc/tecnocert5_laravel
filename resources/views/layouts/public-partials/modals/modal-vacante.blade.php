@@ -35,9 +35,8 @@
 
   .modal-vacante-content {
     background: #0B1A42;
-    width: 100%;
+    width: 95%;
     max-width: 400px;
-    width: 100%;
     border-radius: 8px;
     padding: 2rem;
     position: relative;
@@ -211,50 +210,48 @@
     font-size: 12px;
   }
 
-  /* Media queries para ajustar en diferentes dispositivos */
+  /* --- AJUSTES RESPONSIVOS --- */
 
+  /* Pantallas Móviles (Celulares) */
+  @media (max-width: 767px) {
+    .modal-vacante-content {
+      width: 96% !important; /* Forzamos a que ocupe casi todo el ancho */
+      max-width: none !important; /* Eliminamos cualquier restricción previa */
+      padding: 1.25rem !important; /* Reducimos padding para ganar espacio interno */
+    }
 
-  .modal-vacante .form-vacante .form-group {
-    margin-bottom: 1rem;
+    .modal-vacante .modal-header h2 {
+      font-size: 1.2rem !important;
+    }
+
+    .modal-vacante .form-vacante .form-group {
+      margin-bottom: 0.8rem !important;
+    }
+
+    .modal-vacante .form-vacante textarea.form-control {
+      min-height: 60px !important;
+      max-height: 100px !important;
+    }
+
+    .modal-vacante .form-vacante .form-control {
+      padding: 0.6rem !important;
+    }
+
+    .modal-vacante .modal-close {
+      top: -10px !important;
+      right: -10px !important;
+      width: 28px !important;
+      height: 28px !important;
+      font-size: 1.3rem !important;
+    }
   }
 
-  .modal-vacante .form-vacante textarea.form-control {
-    min-height: 60px;
-    max-height: 100px;
-  }
-
-
-  .modal-vacante .modal-header h2 {
-    font-size: 1.3rem;
-  }
-
-  .modal-vacante .form-vacante .form-group {
-    margin-bottom: 0.8rem;
-  }
-
-  .modal-vacante .form-vacante .form-control {
-    padding: 0.6rem;
-  }
-
-
-
-
-  .modal-vacante-content {
-    padding: 1.5rem;
-    max-width: 40%;
-  }
-
-
-  .modal-vacante .modal-header h2 {
-    font-size: 1.2rem;
-  }
-
-  .modal-vacante .modal-close {
-    top: -10px;
-    right: -10px;
-    width: 28px;
-    height: 28px;
-    font-size: 1.3rem;
+  /* Pantallas de Escritorio */
+  @media (min-width: 768px) {
+    .modal-vacante-content {
+      max-width: 450px !important; /* Ancho fijo elegante para PC */
+      width: 100% !important;
+    }
   }
 
   .file-upload {

@@ -138,8 +138,13 @@
 	@stack('scripts')
 	
 <script>
-		
-		document.addEventListener("DOMContentLoaded", () => {
+		// Este evento se dispara cada vez que Livewire termina de navegar (incluso con wire:navigate)
+		document.addEventListener("livewire:navigated", () => {
+
+			// 1. Re-inicializar componentes de Preline (Dropdowns, Modales, etc.)
+			if (window.HSStaticMethods && typeof window.HSStaticMethods.autoInit === 'function') {
+				window.HSStaticMethods.autoInit();
+			}
 
 			Livewire.on('openModal', (id) => {
 				const modal = document.querySelector(`#${id}`);
@@ -165,6 +170,11 @@
 			});
 
 		});
+
+		// Mantener compatibilidad con carga inicial tradicional (F5)
+		document.addEventListener("DOMContentLoaded", () => {
+			// Aquí puedes dejar lógica que NO dependa de elementos que cambian con Livewire
+		});
 	</script>
 	<script>
 		Livewire.on('notify', (data) => {
@@ -182,4 +192,3 @@
 	
 </body>
 </html>
-

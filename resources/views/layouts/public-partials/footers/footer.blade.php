@@ -139,17 +139,24 @@
                     </div>
                 </div>
                 <div class="row mt-md-5">
-                    <div class="col-md-12">
-                        <p class="copyright" style="color:rgba(255, 255, 255, 0.5);">
-                            Copyright &copy;
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>
-                            Todos los derechos reservados | Diseño y desarrollo
-                            <a href="https://pcingenieria.com.co/" target="_blank">PC Ingeniería</a>
+					<div class="col-md-12 d-md-flex justify-content-between align-items-center text-center text-md-left">
+						<p class="mb-0">
+							 <a href="{{ route('login') }}" style="color:rgba(255, 255, 255, 0.5);" target="_blank"> Portal Administrativo</a>
+						</p>
+                        <p class="mb-0" >
+                            |
                         </p>
-                    </div>
-                </div>
+
+						<p class="copyright mb-0 text-md-right" style="color:rgba(255, 255, 255, 0.5);">
+							Copyright &copy;
+							<script>
+								document.write(new Date().getFullYear());
+							</script>
+							Todos los derechos reservados | Diseño y desarrollo
+							<a href="https://pcingenieria.com.co/" target="_blank">PC Ingeniería</a>
+						</p>
+					</div>
+				</div>
             </div>
             <div class="col-md-3 py-md-5 py-4 aside-stretch-right pl-lg-5" style="padding-bottom: 0px !important;">
                 <div class="toast-container-cotizacion" wire:ignore></div>

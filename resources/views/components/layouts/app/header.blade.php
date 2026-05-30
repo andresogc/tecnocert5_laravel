@@ -499,7 +499,7 @@
 
                     <button id="dropdown-profile" type="button"
                         class="hs-dropdown-toggle ti-dropdown-toggle !gap-2 !p-0 flex-shrink-0 me-0 !rounded-full !shadow-none text-xs align-middle !border-0 !shadow-transparent ">
-                        <img class="inline-block rounded-full " src="{{asset('admin/app/assets/images/faces/6.jpg')}}" width="37"
+                        <img class="inline-block rounded-full " src="{{asset('admin/app/assets/images/faces/21.jpg')}}" width="37"
                             height="37" alt="Image Description">
                     </button>
                     <div class="main-header-dropdown !-mt-2 !p-0 hs-dropdown-menu ti-dropdown-menu  bg-white  !border-0 border-defaultborder hidden !m-0"

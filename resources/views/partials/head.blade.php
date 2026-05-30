@@ -6,7 +6,7 @@
     content="">
 
 <!-- Title -->
-<title> TECNOCERT&reg; | RESULTADOS REALES </title>
+<title> TECNOCERT | PANEL ADMINISTRATIVO </title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="{{asset('main-page/images/logo.ico')}}" type="image/ico" />
