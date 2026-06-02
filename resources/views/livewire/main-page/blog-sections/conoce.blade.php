@@ -123,7 +123,7 @@
         <div class="row g-4">
 
           <!-- ISO CARD DESTACADA -->
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="glass-card iso-highlight">
              <!--  <span class="badge-iso">Servicio Principal</span> -->
               <img src="{{asset('main-page/images/icono1.png')}}" class="glass-icon">
@@ -134,7 +134,7 @@
           </div>
 
           <!-- GAP -->
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="glass-card">
               <img src="{{asset('main-page/images/icono2.png')}}" class="glass-icon">
               <h4>GAP Análisis</h4>
@@ -144,7 +144,7 @@
           </div>
 
           <!-- AUDITORIA -->
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="glass-card">
               <img src="{{asset('main-page/images/icono3.png')}}" class="glass-icon">
               <h4>Auditoría Interna</h4>
@@ -154,14 +154,14 @@
           </div>
 
           <!-- CAPACITACION -->
-          <div class="col-md-3">
+          {{-- <div class="col-md-3">
             <div class="glass-card">
               <img src="{{asset('main-page/images/icono4.png')}}" class="glass-icon">
               <h4>Capacitación</h4>
               <p>Nuestros Servicios</p>
               <a href="{{route('capacitacion')}}" target="_blank">Más información →</a>
             </div>
-          </div>
+          </div> --}}
 
         </div>
 

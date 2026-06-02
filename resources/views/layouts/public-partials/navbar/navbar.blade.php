@@ -22,7 +22,7 @@
                         </li>
                         <li><a href="{{route('gap_analisis')}}">GAP Análisis</a></li>
                         <li><a href="{{route('auditoria_interna')}}">Auditoría Interna</a></li>
-                        <li><a href="{{route('capacitacion')}}">Capacitación</a></li>
+                       {{--  <li><a href="{{route('capacitacion')}}">Capacitación</a></li> --}}
                     </ul>
                 </li>
                 <li class="nav-item">

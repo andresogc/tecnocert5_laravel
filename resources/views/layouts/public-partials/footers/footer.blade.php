@@ -77,11 +77,11 @@
 
                                                         </a>
                                                     </li>
-                                                    <li class="has-submenu">
+                                                   {{--  <li class="has-submenu">
                                                         <a href="{{route('capacitacion')}}" class="py-1 d-block">
                                                             Capacitación
                                                         </a>
-                                                    </li>
+                                                    </li> --}}
                                                 </ul>
 
                                             </div>

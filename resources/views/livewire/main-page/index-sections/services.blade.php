@@ -107,7 +107,7 @@
 
           <div class="col-md-9 card">
             <div class="row">
-              <div class="col-md-4 services align-self-stretch px-4 ftco-animate">
+              <div class="col-md-6 services align-self-stretch px-6 ftco-animate">
                 <div class="d-block text-center">
                   <div class="icon d-flex justify-content-center align-items-center"
                     style="background-color: #fefefe; width:90px !important;height:90px !important">
@@ -127,7 +127,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4 services align-self-stretch px-4 ftco-animate">
+              <div class="col-md-6 services align-self-stretch px-6 ftco-animate">
                 <div class="d-block text-center">
                   <div class="icon d-flex justify-content-center align-items-center"
                     style="background-color: #fefefe; width:90px !important;height:90px !important">
@@ -147,7 +147,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4 services align-self-stretch px-4 ftco-animate">
+              {{-- <div class="col-md-4 services align-self-stretch px-4 ftco-animate">
                 <div class="d-block text-center">
                   <div class="icon d-flex justify-content-center align-items-center"
                     style="background-color: #fefefe; width:90px !important;height:90px !important">
@@ -166,7 +166,7 @@
                     <p>&nbsp;</p>
                   </div>
                 </div>
-              </div>
+              </div> --}}
             </div>
           </div>
 
