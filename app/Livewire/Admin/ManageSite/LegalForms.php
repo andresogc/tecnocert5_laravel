@@ -86,7 +86,7 @@ class LegalForms extends Component
                     $cleanName = Str::slug($this->name) . '_' . time() . '.' . $this->file->extension();
 
                     // guardar archivo
-                    $filePath = $this->file->storeAs(
+                    $filePath = 'storage/' . $this->file->storeAs(
                         'legals',
                         $cleanName,
                         'public'

@@ -70,12 +70,12 @@
                 <div class='value'>{{$correo}}</div>
             </div>";
 
-            @if(!empty($comentarios)) {
+            @if(!empty($comentarios)) 
             <div class='field'>
                 <div class='label'>Comentarios Adicionales:</div>
                 <div class='value'>{{$comentarios}}</div>
             </div>";
-            }
+            @endif
 
             <hr>
             <div class="footer">
