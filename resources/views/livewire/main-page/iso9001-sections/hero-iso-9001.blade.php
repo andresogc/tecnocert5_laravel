@@ -1,6 +1,34 @@
+<style>
+    .hero-iso-bg {
+        background-image: url('{{ asset("main-page/images/banner_iso.webp") }}');
+    }
+
+    @media (max-width: 767.98px) {
+        .hero-iso-bg {
+            background-image: url('{{ asset("main-page/images/mobile/banner_iso_mobile.webp") }}') !important;
+        }
+
+        /* Centrado Vertical: forzamos que la fila ocupe el alto y centre el contenido */
+        .hero-iso-bg .slider-text {
+            align-items: center !important;
+        }
+
+        /* Centrado Horizontal y reseteo de espacios */
+        .hero-iso-bg .col-md-9 {
+            justify-content: center !important;
+            margin-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        /* Ancho completo y quitar padding inferior */
+        .hero-iso-bg .text {
+            width: 100% !important;
+            padding-bottom: 0 !important;
+        }
+    }
+</style>
   <!-- Hero Section Start -->
-  <section class="hero-wrap hero-wrap-2" style="background-image: url('{{asset("main-page/images/banner_iso.webp")}}')"
-    >
+  <section class="hero-wrap hero-wrap-2 hero-iso-bg">
     <div id="particles-js" ></div>
     <!-- <div class="overlay"></div> -->
     <div class="container">

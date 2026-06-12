@@ -11,13 +11,14 @@
 }
 
 /* ================= IMAGEN FONDO ================= */
-.hero-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Desktop premium */
-  z-index: 1;
+.hero-gap-bg {
+  background-image: url('{{ asset("main-page/images/banner_gap_analisis.webp") }}');
+}
+
+@media (max-width: 767.98px) {
+  .hero-gap-bg {
+    background-image: url('{{ asset("main-page/images/mobile/banner_gap_analisis_mobile2.webp") }}') !important;
+  }
 }
 
 /* ================= PARTICLES ================= */
@@ -41,30 +42,18 @@
 }
 
 /* ================= MOBILE ================= */
-@media (max-width: 650px) {
+@media (max-width: 767.98px) {
 
   /* Banner no gigante */
   .hero-wrap,
   .hero-wrap-2 {
-    min-height: auto !important;
-    height: auto !important;
-    padding: 0;
+    height: 400px !important; /* Restauramos la altura para permitir espacio de centrado */
+    padding: 0 !important;
   }
 
-  /* Mostrar imagen completa en móvil */
-  .hero-img {
-    object-fit:cover ; /* no recorta */
-    background-color: #000;
-    height: 100%;
-  }
-
-  /* CENTRAR TEXTO EN MÓVIL */
-  .hero-wrap-2 .container {
-    height: 100%;
-    display: flex;
-    align-items: center;       /* vertical */
-    justify-content: center;   /* horizontal */
-    text-align: center;
+  .hero-wrap-2 .slider-text {
+    align-items: center !important; /* Centrado vertical real */
+    height: 400px !important;
   }
 
   .hero-wrap-2 .row {
@@ -75,10 +64,13 @@
   .hero-wrap-2 .col-md-9 {
     display: flex !important;
     justify-content: center !important;
+    margin-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .hero-wrap-2 .text {
     width: 100% !important;
+    padding-bottom: 0 !important;
     margin: 0 auto;
   }
 
@@ -95,11 +87,7 @@
 
 </style>
   <!-- Hero Section Start -->
-  <section class="hero-wrap hero-wrap-2" >
-   <picture>
-    <source media="(max-width: 650px)" srcset="{{asset('main-page/images/banner_gap_analisis_mobile.webp')}}">
-    <img src="{{asset('main-page/images/banner_gap_analisis.webp')}}" class="hero-img">
-  </picture>
+  <section class="hero-wrap hero-wrap-2 hero-gap-bg">
     <div id="particles-js" ></div>
     <!-- <div class="overlay"></div> -->
     <div class="container">

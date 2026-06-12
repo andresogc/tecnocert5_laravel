@@ -1,6 +1,32 @@
+<style>
+    .hero-trabaja-bg {
+        background-image: url('{{ asset("main-page/images/trabaja.webp") }}');
+    }
+
+    @media (max-width: 767.98px) {
+        .hero-trabaja-bg {
+            background-image: url('{{ asset("main-page/images/mobile/trabaja_mobile.webp") }}') !important;
+        }
+
+        .hero-trabaja-bg .slider-text {
+            align-items: center !important;
+        }
+
+        .hero-trabaja-bg .col-md-9 {
+            justify-content: center !important;
+            margin-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .hero-trabaja-bg .text {
+            width: 100% !important;
+            padding-bottom: 0 !important;
+            margin-right: 0 !important;
+        }
+    }
+</style>
 <!-- Hero Section Start -->
-  <section class="hero-wrap hero-wrap-2" style="background-image: url('{{asset('main-page/images/trabaja.webp')}}');"
-    >
+  <section class="hero-wrap hero-wrap-2 hero-trabaja-bg">
     <div id="particles-js" ></div>
     <!-- <div class="overlay"></div> -->
     <div class="container">

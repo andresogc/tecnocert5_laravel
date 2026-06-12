@@ -1,6 +1,31 @@
+<style>
+    .hero-auditoria-bg {
+        background-image: url('{{ asset("main-page/images/banner_auditoria.webp") }}');
+    }
+
+    @media (max-width: 767.98px) {
+        .hero-auditoria-bg {
+            background-image: url('{{ asset("main-page/images/mobile/banner_auditoria_mobile.webp") }}') !important;
+        }
+
+        .hero-auditoria-bg .slider-text {
+            align-items: center !important;
+        }
+
+        .hero-auditoria-bg .col-md-9 {
+            justify-content: center !important;
+            margin-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .hero-auditoria-bg .text {
+            width: 100% !important;
+            padding-bottom: 0 !important;
+        }
+    }
+</style>
  <!-- Hero Section Start -->
-  <section class="hero-wrap hero-wrap-2" style="background-image: url('{{asset("main-page/images/banner_auditoria.webp")}}')"
-    >
+  <section class="hero-wrap hero-wrap-2 hero-auditoria-bg">
     <div id="particles-js" ></div>
     <!-- <div class="overlay"></div> -->
     <div class="container">

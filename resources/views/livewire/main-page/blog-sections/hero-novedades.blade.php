@@ -1,6 +1,36 @@
+<style>
+    .hero-novedades-bg {
+        background-image: url('{{ asset("main-page/images/novedades.webp") }}');
+    }
+
+    @media (max-width: 767.98px) {
+        .hero-novedades-bg {
+            background-image: url('{{ asset("main-page/images/mobile/novedades_mobile.webp") }}') !important;
+        }
+
+        .hero-novedades-bg .slider-text {
+            align-items: center !important;
+        }
+
+        .hero-novedades-bg .col-md-12 {
+            justify-content: center !important;
+            margin-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .hero-novedades-bg .text {
+            width: 100% !important;
+            padding-bottom: 0 !important;
+        }
+
+        .hero-novedades-bg .text h1, 
+        .hero-novedades-bg .text h2 {
+            margin-right: 0 !important;
+        }
+    }
+</style>
  <!-- Hero Section Start -->
-   <section class="hero-wrap hero-wrap-2" style="background-image: url('{{asset('main-page/images/novedades.webp')}}')"
-    >
+  <section class="hero-wrap hero-wrap-2 hero-novedades-bg">
     <div id="particles-js" ></div>
     <!-- <div class="overlay"></div> -->
     <div class="container" style="    padding-left: 0px;margin-right: 200px;">

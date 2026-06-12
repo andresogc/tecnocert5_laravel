@@ -1,5 +1,30 @@
-<section class="hero-wrap hero-wrap-2" style="background-image: url('{{asset('main-page/images/contact.webp')}}')"
-    >
+<style>
+    .hero-contact-bg {
+        background-image: url('{{ asset("main-page/images/contact.webp") }}');
+    }
+
+    @media (max-width: 767.98px) {
+        .hero-contact-bg {
+            background-image: url('{{ asset("main-page/images/mobile/contact_mobile.webp") }}') !important;
+        }
+
+        .hero-contact-bg .slider-text {
+            align-items: center !important;
+        }
+
+        .hero-contact-bg .col-md-9 {
+            justify-content: center !important;
+            margin-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .hero-contact-bg .text {
+            width: 100% !important;
+            padding-bottom: 0 !important;
+        }
+    }
+</style>
+  <section class="hero-wrap hero-wrap-2 hero-contact-bg">
     <div id="particles-js" ></div>
     <!-- <div class="overlay"></div> -->
     <div class="container">
