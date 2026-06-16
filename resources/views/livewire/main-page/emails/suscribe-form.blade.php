@@ -54,7 +54,7 @@
             <p>Se ha recibido una nueva solicitud de suscripción:</p>
             <div class='field'>
                 <div class='label'>Correo Electrónico:</div>
-                <div class='value'>{{$correo}}</div>
+                <div class='value'>{{$email}}</div>
             </div>
 
             

@@ -3,6 +3,7 @@
 namespace App\Livewire\MainPage\Forms;
 
 use App\Mail\VacanteFormMail;
+use App\Services\BrevoMailService;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
@@ -48,7 +49,7 @@ class VacanteForm extends Component
             $this->validate();
 
             // aquí envia el correo con Brevo
-            Mail::to(config('mail.forms.contact'))
+           /*  Mail::to(config('mail.forms.contact'))
             ->send(new VacanteFormMail(
                 $this->name,
                 $this->last_name,
@@ -57,7 +58,44 @@ class VacanteForm extends Component
                 $this->observation,
                 $this->cv_file,
                 $this->vacanteTitle
-            ));
+            )); */
+
+            $emails = config('mail.forms.vacante');
+
+            $to = array_map(function ($email) {
+                return ['email' => $email];
+            }, $emails);
+
+
+            $attachments = [];
+
+            if ($this->cv_file) {
+                $attachments[] = [
+                    'name' => $this->cv_file->getClientOriginalName(),
+                    'content' => base64_encode(
+                        file_get_contents($this->cv_file->getRealPath())
+                    ),
+                ];
+            }
+
+
+            $brevo = app(BrevoMailService::class);
+
+            $brevo->send(
+                $to,
+                'SOLICITUD DE VACANTE - '. $this->vacanteTitle,
+                view('livewire.main-page.emails.vacante-form', [
+                    
+                    'name' =>  $this->name,
+                    'last_name' =>  $this->last_name,
+                    'phone' =>   $this->phone,
+                    'email' => $this->email,
+                    'observation' =>   $this->observation,
+                    'cv_file' =>   $this->cv_file,
+                    'vacanteTitle' =>  $this->vacanteTitle
+                ])->render(),
+                $attachments
+            );
 
 
             $this->dispatch('toast',
@@ -93,7 +131,6 @@ class VacanteForm extends Component
 
     }
 
-   
 
     public function render()
     {

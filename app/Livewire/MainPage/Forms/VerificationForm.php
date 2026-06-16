@@ -42,7 +42,7 @@ class VerificationForm extends Component
                 $this->comentarios
             )); */
 
-            $emails = config('mail.forms.contact');
+            $emails = config('mail.forms.verification');
 
          
 

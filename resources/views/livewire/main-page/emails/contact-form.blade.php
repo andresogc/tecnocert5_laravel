@@ -100,9 +100,9 @@
                 <h3>DETALLES DE LA SOLICITUD</h3>
                 <div class='message-box'>
                     <div class='label'>Motivo:</div>
-                    <div class='value' style='width:100%; margin-top:10px;'>{{ $subjectForm }}</div>
+                    <div class='value' style='width:100%; margin-top:10px;'>{{ $subject }}</div>
                     <div class='label'>Mensaje:</div>
-                    <div class='value' style='width:100%; margin-top:10px;'>{{ $messageForm }}</div>
+                    <div class='value' style='width:100%; margin-top:10px;'>{{ $message }}</div>
                 </div>
             </div>
 

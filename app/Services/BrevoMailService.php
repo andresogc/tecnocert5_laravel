@@ -22,17 +22,23 @@ class BrevoMailService
         );
     }
 
-    public function send($to, $subject, $htmlContent)
+    public function send($to, $subject, $htmlContent, array $attachments = [])
     {
-        $email = new \SendinBlue\Client\Model\SendSmtpEmail([
-           'to' => $to,
+        $data = [
+            'to' => $to,
             'sender' => [
                 'email' => env('MAIL_FROM_ADDRESS'),
-                'name' => env('MAIL_FROM_NAME')
+                'name' => env('MAIL_FROM_NAME'),
             ],
             'subject' => $subject,
-            'htmlContent' => $htmlContent
-        ]);
+            'htmlContent' => $htmlContent,
+        ];
+
+        if (!empty($attachments)) {
+            $data['attachment'] = $attachments;
+        }
+
+        $email = new \SendinBlue\Client\Model\SendSmtpEmail($data);
 
         return $this->apiInstance->sendTransacEmail($email);
     }

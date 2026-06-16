@@ -6,6 +6,7 @@ use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactFormMail;
+use App\Services\BrevoMailService;
 use Illuminate\Support\Facades\Log;
 
 class ContactForm extends Component
@@ -31,14 +32,32 @@ class ContactForm extends Component
             $this->validate();
 
             // aquí envia el correo con Brevo
-            Mail::to(config('mail.forms.contact'))
+          /*   Mail::to(config('mail.forms.contact'))
             ->send(new ContactFormMail(
                 $this->name,
                 $this->email,
                 $this->subject,
                 $this->message
-            ));
+            )); */
+            $emails = config('mail.forms.verification');
 
+            $to = array_map(function ($email) {
+                return ['email' => $email];
+            }, $emails);
+
+             $brevo = app(BrevoMailService::class);
+
+            $brevo->send(
+                $to,
+                'Nuevo mensaje desde el formulario de contacto',
+                view('livewire.main-page.emails.contact-form', [
+                    'name' => $this->name,
+                    'email' => $this->email,
+                    'subject' => $this->subject,
+                    'message' => $this->message,
+                ])->render()
+            );
+         
 
             $this->dispatch('toast',
                 message: 'Mensaje enviado correctamente',
