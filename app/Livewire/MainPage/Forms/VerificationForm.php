@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
+use App\Services\BrevoMailService;
 
 class VerificationForm extends Component
 {   
@@ -26,21 +27,43 @@ class VerificationForm extends Component
     ];
 
       public function send()
-    {   
+    {       
         try {
 
             $this->validate();
 
             // aquí envia el correo con Brevo
-            Mail::to(config('mail.forms.contact'))
+           /*  Mail::to(config('mail.forms.contact'))
             ->send(new VerificationFormMail(
                 $this->numero_certificado,
                 $this->nombre_empresa,
                 $this->norma_certificada,
                 $this->correo,
                 $this->comentarios
-            ));
+            )); */
 
+            $emails = config('mail.forms.contact');
+
+         
+
+            $to = array_map(function ($email) {
+                return ['email' => $email];
+            }, $emails);
+
+            $brevo = app(BrevoMailService::class);
+
+            $brevo->send(
+                $to,
+                'Verificar certificado',
+                view('livewire.main-page.emails.verification-form', [
+                    'numero_certificado' => $this->numero_certificado,
+                    'nombre_empresa' => $this->nombre_empresa,
+                    'norma_certificada' => $this->norma_certificada,
+                    'correo' => $this->correo,
+                    'comentarios' => $this->comentarios,
+                ])->render()
+            );
+         
 
             $this->dispatch('toast',
                 message: 'Mensaje enviado correctamente',
